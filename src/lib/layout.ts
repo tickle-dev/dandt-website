@@ -24,21 +24,9 @@ export function viewportCategory(width: number): ViewportCategory {
 }
 
 /**
- * The Click_To_Call_Button is shown only on mobile, and only while neither the Mobile_Menu
- * nor the Project_Viewer is open (Req 24.1, 24.2, 24.7).
- */
-export function isClickToCallVisible(
-  v: ViewportCategory,
-  menuOpen: boolean,
-  viewerOpen: boolean,
-): boolean {
-  return v === 'mobile' && !menuOpen && !viewerOpen;
-}
-
-/**
  * Pixels to scroll by (`window.scrollBy(0, delta)`) so a focused element's rectangle is not
- * covered by the sticky Site_Header (`topInset`) or the Click_To_Call_Button (`bottomInset`)
- * (Req 15.5, 24.8). Negative scrolls up, 0 means already uncovered. Elements taller than the
+ * covered by the sticky Site_Header (`topInset`) or the fixed TabBar (`bottomInset`)
+ * (Req 15.5, 24.5). Negative scrolls up, 0 means already uncovered. Elements taller than the
  * free band are aligned to its top.
  */
 export function computeFocusScrollDelta(

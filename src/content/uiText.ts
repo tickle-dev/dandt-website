@@ -107,6 +107,8 @@ export const CTA_LABELS = {
   describeProject: 'Describe Your Project',
   explore: 'Explore',
   seeAllServiceAreas: 'See all service areas',
+  /** Header CTA label on a Mobile_Viewport, where "Get a Free Quote" does not fit beside the logo. */
+  getQuoteShort: 'Free Quote',
   /** Not_Found_Page text links (Req 5.7). */
   notFoundHome: 'Go to the home page',
   notFoundServices: 'Browse our services',
@@ -261,8 +263,9 @@ export const A11Y = {
   footerPagesNav: 'Footer pages',
   footerServicesNav: 'Footer services',
   breadcrumb: 'Breadcrumb',
-  openMenu: 'Open navigation menu',
-  closeMenu: 'Close navigation menu',
+  /** Tab_Bar More tab label and the accessible name of the sheet it opens (Req 4.2, 4.4). */
+  more: 'More',
+  morePages: 'More pages',
   previousProject: 'Previous project',
   nextProject: 'Next project',
   closeViewer: 'Close project viewer',

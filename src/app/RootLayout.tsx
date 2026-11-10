@@ -1,11 +1,11 @@
 // Layout shell for every route (design.md, RootLayout row and Runtime composition;
-// Req 3.1, 5.2, 5.8, 12.1, 15.1, 15.3, 15.5, 24.8).
+// Req 3.1, 4.1, 5.2, 5.8, 12.1, 15.1, 15.3, 15.5, 24.5).
 import { useEffect, useRef, type RefObject } from 'react';
 import { Outlet, ScrollRestoration } from 'react-router';
-import { ClickToCallButton } from '../components/ClickToCallButton/ClickToCallButton.tsx';
 import { Footer } from '../components/Footer/Footer.tsx';
 import { SiteHeader } from '../components/SiteHeader/SiteHeader.tsx';
 import { MAIN_ID, SkipLink } from '../components/SkipLink/SkipLink.tsx';
+import { TabBar } from '../components/TabBar/TabBar.tsx';
 import { computeFocusScrollDelta } from '../lib/layout.ts';
 import { LayoutProvider } from './layoutContext.tsx';
 import { RouteChangeEffects } from './RouteChangeEffects.tsx';
@@ -29,7 +29,7 @@ export function RootLayout() {
           <Outlet />
         </main>
         <Footer />
-        <ClickToCallButton />
+        <TabBar />
       </div>
       <RouteChangeEffects />
       <ScrollRestoration />
@@ -37,21 +37,21 @@ export function RootLayout() {
   );
 }
 
-/** The Click_To_Call_Button is the shell's only direct-child `tel:` link (the SkipLink is `#main`). */
-const CTC_SELECTOR = ':scope > a[href^="tel:"]';
+/** The fixed TabBar (Req 4), a direct child of the shell; display: none from 1024 px. */
+const TAB_BAR_SELECTOR = ':scope > nav[data-tab-bar]';
 const HEADER_SELECTOR = ':scope > header';
 
 /**
- * Document `focusin` listener (design.md, Focus visibility; Req 15.5, 24.8). scroll-padding in
+ * Document `focusin` listener (design.md, Focus visibility; Req 15.5, 24.5). scroll-padding in
  * global.css covers browsers that honor it during focus navigation; this listener scrolls by
  * `computeFocusScrollDelta` when the focused element is still covered by the sticky
- * Site_Header or the Click_To_Call_Button. It measures one frame after focus, so any scroll the
+ * Site_Header or the TabBar. It measures one frame after focus, so any scroll the
  * browser performed itself is already applied and the delta is then 0.
  *
  * Skipped targets:
  * - elements with tabIndex -1 (`main` and the page h1): they are only focused programmatically
  *   (SkipLink, route change with `preventScroll`), so ScrollRestoration keeps control;
- * - elements inside the Site_Header or the Click_To_Call_Button, which are always in view;
+ * - elements inside the Site_Header or the TabBar (and its More sheet), which are always in view;
  * - elements inside a modal dialog (the Project_Viewer), which is fixed and scroll-locked;
  * - focus that is not `:focus-visible` (for example a mouse click on a link or button).
  */
@@ -66,12 +66,12 @@ function useFocusScrollAdjustment(shellRef: RefObject<HTMLDivElement | null>): v
       if (!matchesFocusVisible(target)) return;
 
       const header = shell.querySelector<HTMLElement>(HEADER_SELECTOR);
-      const ctc = shell.querySelector<HTMLElement>(CTC_SELECTOR);
-      if (header?.contains(target) || ctc?.contains(target)) return;
+      const tabBar = shell.querySelector<HTMLElement>(TAB_BAR_SELECTOR);
+      if (header?.contains(target) || tabBar?.contains(target)) return;
 
       const viewportHeight = window.innerHeight;
       const topInset = header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
-      const bottomInset = ctc ? coveredBottom(ctc, viewportHeight) : 0;
+      const bottomInset = tabBar ? coveredBottom(tabBar, viewportHeight) : 0;
       const delta = computeFocusScrollDelta(
         target.getBoundingClientRect(),
         viewportHeight,
@@ -97,10 +97,10 @@ function useFocusScrollAdjustment(shellRef: RefObject<HTMLDivElement | null>): v
   }, [shellRef]);
 }
 
-/** Height of the band at the viewport bottom covered by the button; 0 when it is not displayed. */
-function coveredBottom(ctc: HTMLElement, viewportHeight: number): number {
-  const rect = ctc.getBoundingClientRect();
-  if (rect.height === 0) return 0; // display: none at 768 px and wider
+/** Height of the band at the viewport bottom covered by the TabBar; 0 when it is not displayed. */
+function coveredBottom(tabBar: HTMLElement, viewportHeight: number): number {
+  const rect = tabBar.getBoundingClientRect();
+  if (rect.height === 0) return 0; // display: none at 1024 px and wider
   return Math.max(0, viewportHeight - rect.top);
 }
 

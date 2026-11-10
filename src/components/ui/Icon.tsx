@@ -5,6 +5,8 @@ import {
   ChevronLeft,
   ChevronRight,
   CircleAlert,
+  CircleHelp,
+  Ellipsis,
   ClipboardCheck,
   Clock,
   Grid3x3,
@@ -26,6 +28,7 @@ import {
   ShieldCheck,
   Star,
   Trees,
+  Users,
   X,
   type LucideIcon,
   type LucideProps,
@@ -58,6 +61,10 @@ const ICONS: Record<IconName, LucideIcon> = {
   ChevronRight,
   Search,
   SearchX,
+  // Tab_Bar and Mobile_Menu icons
+  Ellipsis,
+  CircleHelp,
+  Users,
   // Service_Category icons
   BrickWall,
   PaintRoller,

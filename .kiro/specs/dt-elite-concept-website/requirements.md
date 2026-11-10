@@ -43,10 +43,11 @@ Visual quality and a clean, uncluttered layout are the top priority of the demo.
 - **Logo**: The full wordmark image, showing the gold wordmark ("D&T" with a house roofline, "GO ELITE", "ROOFING AND CONSTRUCTION") on a black background, bundled with the Website and built from the customer's logo file as defined in Requirement 17 criterion 1.
 - **Header_Logo**: The compact version of the Logo shown in the Site_Header, showing only "D&T" with the house roofline and "GO ELITE" and omitting the "ROOFING AND CONSTRUCTION" line.
 - **Brand_Icon**: The customer's icon-only mark, used for the browser tab icon (favicon).
-- **Site_Header**: The persistent top bar of the Website containing the Header_Logo, the Navigation_Menu or Menu_Toggle, and the header Call_To_Action.
-- **Navigation_Menu**: The set of primary page links (Home, Services, Projects, Reviews, Service Areas, FAQ, About, Contact) shown in the Site_Header.
-- **Mobile_Menu**: The collapsible version of the Navigation_Menu shown on a Compact_Viewport.
-- **Menu_Toggle**: The button in the Site_Header that opens and closes the Mobile_Menu.
+- **Site_Header**: The persistent top bar of the Website containing the Header_Logo, the Navigation_Menu (Desktop_Viewport only), and the header Call_To_Action.
+- **Navigation_Menu**: The set of primary page links (Home, Services, Projects, Reviews, Service Areas, FAQ, About, Contact) shown in the Site_Header on a Desktop_Viewport.
+- **Tab_Bar**: The navigation bar fixed to the bottom of the viewport on a Compact_Viewport, with five tabs in the order Home, Services, Projects, Call, More.
+- **Mobile_Menu**: The "More" sheet of the Tab_Bar: a panel that opens above the Tab_Bar and lists the Navigation_Menu pages that have no tab of their own (Reviews, Service Areas, FAQ, About, Contact).
+- **Menu_Toggle**: The More tab of the Tab_Bar, which opens and closes the Mobile_Menu.
 - **Footer**: The persistent bottom section of the Website containing the Logo, company summary, links, Social_Links, and contact information.
 - **Home_Page**: The page served at Route_Path `/`.
 - **Services_Page**: The page served at Route_Path `/services` listing all Service_Categories and Service_Items.
@@ -77,7 +78,7 @@ Visual quality and a clean, uncluttered layout are the top priority of the demo.
 - **FAQ_Accordion**: The list of FAQ_Items on the FAQ_Page in which each answer can be expanded and collapsed independently.
 - **Map_Embed**: An embedded Google Maps frame, loaded from a Google Maps embed URL that requires no API key, together with its "Open in Google Maps" fallback link.
 - **Social_Links**: The set of links to the company's Facebook, Instagram, Google Business Profile, and Nextdoor pages, using placeholder URLs from the Content_Module.
-- **Click_To_Call_Button**: The persistent button shown on a Mobile_Viewport that links to the placeholder phone number through a `tel:` link.
+- **Click_To_Call_Button**: The Call tab of the Tab_Bar, which links to the placeholder phone number through a `tel:` link.
 - **Quote_Form**: The free-quote request form on the Contact_Page.
 - **Form_Validator**: The client-side logic that checks Quote_Form field values and produces field error messages.
 - **Confirmation_Message**: The on-screen message shown after a valid Quote_Form submission.
@@ -145,32 +146,32 @@ Visual quality and a clean, uncluttered layout are the top priority of the demo.
 2. THE Site_Header SHALL display the Header_Logo at its left edge as a link to the Home_Page, and the Header_Logo link SHALL have an accessible name that contains the text "D&T Go Elite".
 3. WHILE the viewport is a Desktop_Viewport, THE Site_Header SHALL display the Navigation_Menu links inline, in a single row, in the order Home, Services, Projects, Reviews, Service Areas, FAQ, About, Contact, linking to the Route_Paths `/`, `/services`, `/projects`, `/reviews`, `/service-areas`, `/faq`, `/about`, and `/contact` respectively.
 4. WHILE the viewport is a Desktop_Viewport, THE Site_Header SHALL display the Header_Logo, all eight Navigation_Menu links, and the header Call_To_Action on one row without wrapping, truncating, or overlapping one another at every viewport width from 1024 to 1920 CSS pixels.
-5. WHILE the viewport is a Tablet_Viewport or a Desktop_Viewport, THE Site_Header SHALL display a "Get a Free Quote" Call_To_Action in the header row that links to the Contact_Page at Route_Path `/contact` and is styled with the Theme gold accent color as its background; WHILE the viewport is a Mobile_Viewport, THE Site_Header SHALL omit the "Get a Free Quote" Call_To_Action from the header row and THE Mobile_Menu SHALL display the "Get a Free Quote" Call_To_Action, as required by Requirement 4 criterion 2, with the same link target and the same Theme gold accent background.
+5. THE Site_Header SHALL display, at every viewport width, a Call_To_Action in the header row that links to the Contact_Page at Route_Path `/contact` and is styled with the Theme gold accent color as its background, labeled "Get a Free Quote" on a Tablet_Viewport or Desktop_Viewport and "Free Quote" on a Mobile_Viewport so that it fits beside the Header_Logo from 320 CSS pixels wide.
 6. WHILE the visitor is on the Home_Page, Services_Page, Projects_Page, Reviews_Page, Service_Areas_Page, FAQ_Page, About_Page, or Contact_Page, THE Navigation_Menu SHALL mark the link whose Route_Path matches the current page as active, using the Theme gold accent color plus an underline, SHALL set `aria-current="page"` on that link, and SHALL show no other Navigation_Menu link as active.
 7. WHILE the visitor is on a Service_Category_Page, THE Navigation_Menu SHALL mark the Services link as active using the same visual styling defined in criterion 6, SHALL set `aria-current="true"` on the Services link, and SHALL show no other Navigation_Menu link as active.
 8. WHILE the page is scrolled vertically by any amount greater than 0 CSS pixels, THE Site_Header SHALL remain fixed at the top edge of the viewport and stay fully visible.
 9. WHILE the visitor is on the Not_Found_Page, THE Navigation_Menu SHALL show no link as active and SHALL set `aria-current` on no Navigation_Menu link.
 10. WHILE the page is scrolled to the top (scroll position 0), THE Website SHALL position the start of each page's main content below the bottom edge of the Site_Header, so that the Site_Header overlaps no main-content text or controls.
-11. THE Site_Header SHALL have one fixed height per viewport category, identical on every page, at every scroll position, and in both the open and closed Mobile_Menu states, of at most 72 CSS pixels on a Mobile_Viewport and at most 88 CSS pixels on a Tablet_Viewport or Desktop_Viewport, with the Header_Logo, Menu_Toggle, Navigation_Menu links, and header Call_To_Action vertically centered in the header row.
+11. THE Site_Header SHALL have one fixed height per viewport category, identical on every page, at every scroll position, and in both the open and closed Mobile_Menu states, of at most 72 CSS pixels on a Mobile_Viewport and at most 88 CSS pixels on a Tablet_Viewport or Desktop_Viewport, with the Header_Logo, Navigation_Menu links, and header Call_To_Action vertically centered in the header row.
 
-### Requirement 4: Mobile Menu
+### Requirement 4: Mobile Tab Bar
 
-**User Story:** As a visitor on a phone or tablet, I want a compact menu, so that I can navigate without the header crowding the screen.
+**User Story:** As a visitor on a phone or tablet, I want the main pages one tap away at the bottom of the screen, so that I can navigate with my thumb without opening a hidden menu.
 
 #### Acceptance Criteria
 
-1. WHILE the viewport is a Compact_Viewport, THE Site_Header SHALL display the Menu_Toggle in place of the inline Navigation_Menu links, and the inline Navigation_Menu links SHALL be neither visible nor reachable by keyboard Tab navigation.
-2. WHEN the visitor activates the Menu_Toggle by pointer click, touch tap, or the Enter or Space key while the Mobile_Menu is closed, THE Mobile_Menu SHALL open within 300 milliseconds and display all eight Navigation_Menu links (Home, Services, Projects, Reviews, Service Areas, FAQ, About, Contact) in that order and the "Get a Free Quote" Call_To_Action linking to the Contact_Page.
-3. WHEN the visitor activates the Menu_Toggle by pointer click, touch tap, or the Enter or Space key while the Mobile_Menu is open, THE Mobile_Menu SHALL close within 300 milliseconds.
-4. WHEN the visitor selects any link or the Call_To_Action inside the open Mobile_Menu, including the link for the page currently displayed, THE Website SHALL close the Mobile_Menu and THE Router SHALL display the selected page.
-5. WHEN the visitor presses the Escape key while the Mobile_Menu is open, THE Website SHALL close the Mobile_Menu and move keyboard focus to the Menu_Toggle.
-6. THE Menu_Toggle SHALL expose an `aria-expanded` attribute whose value is `true` while the Mobile_Menu is open and `false` while the Mobile_Menu is closed.
-7. WHEN the viewport changes from a Compact_Viewport to a Desktop_Viewport while the Mobile_Menu is open, THE Website SHALL close the Mobile_Menu, and THE Mobile_Menu SHALL remain closed if the viewport later returns to a Compact_Viewport.
-8. WHEN the viewport changes between a Mobile_Viewport and a Tablet_Viewport, THE Mobile_Menu SHALL keep its current open or closed state.
-9. WHEN any page of the Website first loads or the Router displays a different page by any means (link selection, browser back, or browser forward), THE Mobile_Menu SHALL be in the closed state.
-10. WHILE the Mobile_Menu is closed, THE Website SHALL keep the Mobile_Menu links and Call_To_Action hidden from view, unreachable by keyboard Tab navigation, and hidden from assistive technologies.
-11. WHILE the viewport is a Compact_Viewport, THE Menu_Toggle SHALL be a button with an accessible name indicating that it opens or closes the navigation menu, and SHALL have a tappable area of at least 44 by 44 CSS pixels.
-12. WHILE the Mobile_Menu is open and the Mobile_Menu content is taller than the viewport space below the Site_Header, THE Mobile_Menu SHALL scroll vertically so that every Mobile_Menu link and the Call_To_Action can be reached by scrolling and by keyboard Tab navigation.
+1. WHILE the viewport is a Compact_Viewport, THE Website SHALL display the Tab_Bar on every page, including the Not_Found_Page, fixed to the bottom edge of the viewport, fully within the viewport bounds at every width from 320 to 1023 CSS pixels, visible at every scroll position, and SHALL keep the inline Navigation_Menu links out of view and unreachable by keyboard Tab navigation.
+2. THE Tab_Bar SHALL be a `nav` element with the accessible name "Main" and SHALL contain five tabs in this order: Home (`/`), Services (`/services`), Projects (`/projects`), Call (the Click_To_Call_Button, Requirement 24), and More (the Menu_Toggle). Each tab SHALL show an icon above a visible text label and SHALL have a tappable area of at least 44 by 44 CSS pixels.
+3. THE Tab_Bar SHALL be at most 72 CSS pixels tall, excluding any device safe-area inset added below it, SHALL use the Theme black background with a gold accent line along its top edge, and SHALL mark the active tab with the Theme gold accent color using the active-page rules of Requirement 3 criteria 6, 7 and 9: the Home, Services or Projects tab when its page (or, for Services, a Service_Category_Page) is displayed, and the More tab when the Reviews, Service Areas, FAQ, About or Contact page is displayed.
+4. WHEN the visitor activates the More tab by pointer click, touch tap, or the Enter or Space key while the Mobile_Menu is closed, THE Mobile_Menu SHALL open above the Tab_Bar within 300 milliseconds and list the Reviews, Service Areas, FAQ, About and Contact links in that order, each with an icon and a tappable area of at least 44 by 44 CSS pixels, and THE Website SHALL dim the page behind it with the Theme overlay.
+5. WHEN the visitor activates the More tab while the Mobile_Menu is open, taps or clicks the dimmed page behind it, or presses the Escape key, THE Website SHALL close the Mobile_Menu within 300 milliseconds; after the Escape key, keyboard focus SHALL move to the More tab.
+6. WHEN the visitor selects any link inside the Mobile_Menu or any Tab_Bar tab, including the link for the page currently displayed, THE Website SHALL close the Mobile_Menu and THE Router SHALL display the selected page.
+7. THE More tab SHALL expose an `aria-expanded` attribute whose value is `true` while the Mobile_Menu is open and `false` while it is closed, and an `aria-controls` attribute that references the Mobile_Menu.
+8. WHEN the viewport changes from a Compact_Viewport to a Desktop_Viewport while the Mobile_Menu is open, THE Website SHALL close the Mobile_Menu; WHEN the viewport changes between a Mobile_Viewport and a Tablet_Viewport, THE Mobile_Menu SHALL keep its current open or closed state.
+9. WHEN any page first loads or the Router displays a different page by any means (link selection, browser back, or browser forward), THE Mobile_Menu SHALL be in the closed state.
+10. WHILE the Mobile_Menu is closed, THE Website SHALL keep the Mobile_Menu links hidden from view, unreachable by keyboard Tab navigation, and hidden from assistive technologies.
+11. WHILE the Tab_Bar is displayed, THE Website SHALL reserve space below the last Footer content at least equal to the Tab_Bar height, so that when the page is scrolled to the bottom the Tab_Bar covers no Footer text, link, or control, and every focusable element and line of text on the page can be scrolled to a position where no part of it is covered by the Tab_Bar.
+12. WHILE the viewport is a Desktop_Viewport, THE Website SHALL hide the Tab_Bar and the Mobile_Menu from view and from assistive technologies and keep them unreachable by keyboard Tab navigation, and SHALL remove the space described in criterion 11.
 
 ### Requirement 5: Client-Side Routing
 
@@ -533,22 +534,19 @@ Visual quality and a clean, uncluttered layout are the top priority of the demo.
 7. IF a Social_Links URL entry in the Content_Module is empty or does not begin with `https://`, THEN THE Website SHALL omit that Social_Links item from the Footer and the Contact_Page, SHALL keep the remaining Social_Links items in the order given in criterion 1, and SHALL NOT render a link with an empty or `#` destination (exception to criterion 1).
 8. IF all four Social_Links URL entries in the Content_Module are empty or do not begin with `https://`, THEN THE Website SHALL display no Social_Links heading, label, or empty Social_Links container in the Footer or on the Contact_Page, and SHALL leave the rest of the Footer and Contact_Page content in place and fully usable.
 
-### Requirement 24: Mobile Click-to-Call Button
+### Requirement 24: Mobile Click-to-Call
 
 **User Story:** As a visitor on a phone, I want a call button that is always within reach, so that I can call D&T Go Elite with one tap from any page.
 
 #### Acceptance Criteria
 
-1. WHILE the viewport is a Mobile_Viewport and neither the Mobile_Menu nor the Project_Viewer is open, THE Website SHALL display the Click_To_Call_Button on every page, including the Not_Found_Page, fixed to the bottom of the viewport, fully within the viewport bounds at every viewport width from 320 to 767 CSS pixels inclusive, rendered above all other page content, and visible at every scroll position.
-2. WHILE the viewport is a Tablet_Viewport or Desktop_Viewport, THE Website SHALL hide the Click_To_Call_Button from view and from assistive technologies and SHALL keep the Click_To_Call_Button unreachable by keyboard Tab and Shift+Tab navigation.
+1. WHILE the Tab_Bar is displayed, THE Website SHALL display the Click_To_Call_Button as the Call tab of the Tab_Bar on every page, including the Not_Found_Page, visible at every scroll position.
+2. WHILE the viewport is a Desktop_Viewport, THE Website SHALL hide the Click_To_Call_Button from view and from assistive technologies together with the Tab_Bar (Requirement 4 criterion 12).
 3. THE Click_To_Call_Button SHALL be a `tel:` link whose target is the country code `+1` followed by the 10 digits of the placeholder phone number (`2145550123`), with no spaces, parentheses, or hyphens, read from the same Content_Module phone number entry that the Footer and Contact_Page display, so that changing that one entry updates all three locations. THE Click_To_Call_Button SHALL show a visible "Call" label and a phone icon, and SHALL have an accessible name that contains "Call" and the displayed phone number `(214) 555-0123`.
-4. THE Click_To_Call_Button SHALL have a tappable area of at least 44 by 44 CSS pixels, measured including padding, SHALL use the Primary_CTA_Style at the smaller Call_To_Action size variant defined in Requirement 13 criterion 8, and SHALL be displayed as a compact button positioned 16 CSS pixels from the bottom edge and 16 CSS pixels from the right edge of the viewport with the Theme shadow, rather than as a full-width bar, so that the Click_To_Call_Button reads as a single control and does not visually merge with the Footer.
-5. WHILE the Click_To_Call_Button is displayed, THE Website SHALL reserve space below the last Footer content on every page at least equal to the Click_To_Call_Button's height plus 16 CSS pixels, so that when the page is scrolled to the bottom, the Click_To_Call_Button covers no Footer text, link, or control.
-6. WHILE the Click_To_Call_Button is displayed, THE Website SHALL allow every focusable element and every line of text on the page, including the Quote_Form submit button, the Confirmation_Message, and every Footer link, to be scrolled to a position where no part of it is covered by the Click_To_Call_Button.
-7. WHILE the Mobile_Menu or the Project_Viewer is open, THE Website SHALL hide the Click_To_Call_Button from view and from assistive technologies and SHALL keep the Click_To_Call_Button unreachable by keyboard Tab and Shift+Tab navigation.
-8. WHILE the Click_To_Call_Button is displayed, WHEN a focusable element receives keyboard focus while any part of it is covered by the Click_To_Call_Button, THE Website SHALL scroll the page so that no part of the focused element is covered by the Click_To_Call_Button or the Site_Header.
-9. WHEN the visitor activates the Click_To_Call_Button, THE Website SHALL pass the `tel:` link to the browser in the current tab without opening a new tab or window, and SHALL leave the current page, its Route_Path, its scroll position, and any values entered in the Quote_Form unchanged.
-10. WHEN the viewport width crosses the 768 CSS pixel boundary through window resize or device rotation, THE Website SHALL show or hide the Click_To_Call_Button as criteria 1 and 2 require within 500 milliseconds after the change, without a page reload, and SHALL add or remove the bottom space described in criterion 5 at the same time.
+4. THE Click_To_Call_Button SHALL have a tappable area of at least 44 by 44 CSS pixels and SHALL set its phone icon on a gold circular badge, so that it reads as the Tab_Bar's main action.
+5. WHILE the Tab_Bar is displayed, WHEN a focusable element receives keyboard focus while any part of it is covered by the Tab_Bar or the Site_Header, THE Website SHALL scroll the page so that no part of the focused element is covered.
+6. WHEN the visitor activates the Click_To_Call_Button, THE Website SHALL pass the `tel:` link to the browser in the current tab without opening a new tab or window, and SHALL leave the current page, its Route_Path, its scroll position, and any values entered in the Quote_Form unchanged.
+7. WHEN the viewport width crosses the 1024 CSS pixel boundary through window resize or device rotation, THE Website SHALL show or hide the Tab_Bar, including the Click_To_Call_Button, within 500 milliseconds after the change, without a page reload, and SHALL add or remove the space described in Requirement 4 criterion 11 at the same time.
 
 ### Requirement 25: GitHub Pages Deployment
 

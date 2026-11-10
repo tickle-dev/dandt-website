@@ -2,7 +2,7 @@
  * Site_Header (Req 3.8, 3.10, 3.11, 17.4, 17.7, 26.13): sticky in the normal
  * flow, opaque black, one fixed height per viewport category (the height
  * includes the 1 px gray bottom border), items vertically centered.
- * Mobile-first: the 768 px and 1024 px blocks switch the layout.
+ * Below 1024 px the row is logo + quote CTA; the TabBar is the navigation there.
  */
 .header {
   position: sticky;
@@ -48,39 +48,29 @@
   height: var(--logo-header-h);
 }
 
-/* Header CTAs: one per category in the row (none on mobile, Req 3.5). */
-.ctaTablet,
-.ctaDesktop {
-  display: none;
+/* Quote CTA, every viewport (Req 3.5): the short label on phones so it fits from 320 px. */
+.cta {
+  display: flex;
   flex-shrink: 0;
 }
 
-@media (768px <= width < 1024px) {
-  .ctaTablet {
-    display: flex;
+.ctaLong {
+  display: none;
+}
+
+@media (width >= 768px) {
+  .ctaLong {
+    display: inline;
+  }
+
+  .ctaShort {
+    display: none;
   }
 }
 
-/* ---------------------------------------------------------------------------
- * Compact viewports: the nav is the Mobile_Menu panel (Req 4.1, 4.2, 4.10, 4.12).
- * It hangs below the header border across the full viewport width, with the
- * Container gutter as side padding so its left edge matches the row.
- * ------------------------------------------------------------------------ */
+/* Inline links: desktop only (Req 4.1). Below 1024 px the TabBar replaces them. */
 .nav {
   display: none;
-  position: absolute;
-  top: calc(100% + var(--border-width));
-  inset-inline: 0;
-  padding: var(--space-2) var(--gutter) var(--space-5);
-  border-bottom: var(--border-width) solid var(--color-gray);
-  background-color: var(--color-black);
-}
-
-.navOpen {
-  display: block;
-  max-height: calc(100dvh - var(--header-height));
-  overflow-y: auto;
-  overscroll-behavior: contain;
 }
 
 .list {
@@ -89,63 +79,18 @@
   list-style: none;
 }
 
-.item {
-  border-bottom: var(--border-width) solid var(--color-gray);
-}
-
 /*
- * Navigation links (Req 3.6, 26.21): off-white Inter 600, gold on hover.
- * Mobile_Menu panel: large stacked rows; hover adds a faint gold wash, and the
- * active row gets a gold bar at its left edge.
+ * Desktop navigation (Req 3.3, 3.4, 3.6, 26.21): one row of uppercase tracked
+ * labels in off-white Inter 600. Hover brightens the label and grows a gold bar
+ * from the center; the active link stays gold with its bar. The width budget is
+ * logo + 8 links with --nav-link-pad-x on each side + md CTA + two --header-gap
+ * gaps; nothing in the row wraps or shrinks. min-width keeps short labels such as
+ * "FAQ" at 44 px wide (Req 14.6).
  */
-.link {
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-height: var(--tap-min);
-  padding-block: var(--space-3);
-  padding-inline: var(--space-3);
-  color: var(--surface-text);
-  font-family: var(--font-body);
-  font-size: var(--fs-h3);
-  font-weight: var(--fw-semibold);
-  line-height: var(--lh-heading);
-  text-decoration: none;
-}
-
-.link:hover {
-  color: var(--color-gold);
-  background-color: var(--nav-hover-bg);
-}
-
-/* Active link from getActiveNav (Req 3.6, 3.7): gold text and a gold accent. */
-.active,
-.active:hover {
-  color: var(--color-gold);
-  background-color: var(--nav-hover-bg);
-  box-shadow: inset var(--nav-panel-accent-w) 0 0 var(--color-gold);
-}
-
-.panelCta {
-  padding-top: var(--space-5);
-}
-
-/* ---------------------------------------------------------------------------
- * Desktop: the same nav is an inline single row (Req 3.3, 3.4). The width
- * budget (design.md) is logo + 8 links with --nav-link-pad-x on each side +
- * md CTA + two --header-gap gaps; nothing in the row wraps or shrinks.
- * ------------------------------------------------------------------------ */
 @media (width >= 1024px) {
-  .nav,
-  .navOpen {
+  .nav {
     display: block;
-    position: static;
     flex-shrink: 0;
-    max-height: none;
-    padding: 0;
-    overflow: visible;
-    border-bottom: 0;
-    background-color: transparent;
   }
 
   .list {
@@ -154,23 +99,22 @@
     align-items: center;
   }
 
-  .item {
-    border-bottom: 0;
-  }
-
-  /*
-   * Desktop tabs: uppercase tracked labels with a rounded hover wash and a gold
-   * bar that grows from the center on hover and stays under the active link.
-   * min-width keeps short labels such as "FAQ" at 44 px wide (Req 14.6).
-   */
   .link {
+    position: relative;
+    display: flex;
+    align-items: center;
     justify-content: center;
     min-width: var(--tap-min);
-    padding-block: 0;
+    min-height: var(--tap-min);
     padding-inline: var(--nav-link-pad-x);
     border-radius: var(--radius-sm);
+    color: var(--surface-text);
+    font-family: var(--font-body);
     font-size: var(--nav-fs);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-heading);
     letter-spacing: var(--ls-nav);
+    text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
   }
@@ -188,28 +132,22 @@
 
   .link:hover {
     color: var(--color-gold-light);
+    background-color: var(--nav-hover-bg);
   }
 
   .link:hover::after {
     transform: scaleX(1);
   }
 
+  /* Active link from getActiveNav (Req 3.6, 3.7). */
   .active,
   .active:hover {
     color: var(--color-gold);
-    box-shadow: none;
+    background-color: var(--nav-hover-bg);
   }
 
   .active::after {
     transform: scaleX(1);
-  }
-
-  .panelCta {
-    display: none;
-  }
-
-  .ctaDesktop {
-    display: flex;
   }
 }
 

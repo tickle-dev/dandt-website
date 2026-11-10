@@ -75,8 +75,13 @@
   --cta-lg-fs: var(--fs-body-lg);
   --cta-secondary-bg: var(--color-overlay); /* dark backing behind the Secondary label over photos */
 
-  /* Click_To_Call_Button and interaction */
-  --ctc-height: 48px;
+  /* Tab_Bar (Req 4): fixed bottom navigation below 1024 px; 0 on desktop, so the
+     space it reserves (Footer padding, scroll padding, hero height) disappears there */
+  --tab-bar-h: 64px;
+  --fs-tab: 12px;                  /* tab labels under the icons */
+  --tab-call-badge: 36px;          /* gold circle behind the Call tab's phone icon */
+
+  /* Interaction */
   --tap-min: 44px;
   --border-width: 1px;
   --focus-width: 3px;
@@ -133,7 +138,7 @@
   --hero-heading-measure: 20ch;    /* hero h1 max-width for balanced lines */
   /* Home hero min-height: the first viewport below the Site_Header (Req 6.10, 6.11);
      100svh where supported, see @supports below */
-  --hero-min-h: calc(100vh - var(--header-height));
+  --hero-min-h: calc(100vh - var(--header-height) - var(--tab-bar-h));
 
   /* Project_Viewer (Req 21.12); 60dvh where supported, see @supports below */
   --viewer-photo-max-h: 60vh;      /* photo max height inside the panel */
@@ -144,8 +149,9 @@
   /* Aspect ratios, mobile values (Req 22.6, 26.23) */
   --ratio-map: 4 / 3;              /* Map_Embed */
   --ratio-category-header: 4 / 3;  /* Service_Category header image */
-  /* Stacking: Click_To_Call_Button floats above page content (Req 24.1) */
-  --z-ctc: 50;
+  /* Stacking: the Tab_Bar (with its More sheet and dimmed backdrop) sits above page
+     content and below the Site_Header (Req 4) */
+  --z-tab-bar: 90;
   --ratio-project-card: 4 / 3;     /* Project_Card image, all viewports (Req 26.7) */
 }
 
@@ -159,7 +165,7 @@
 /* Small viewport height, so the hero never runs under mobile browser toolbars (Req 6.11). */
 @supports (height: 1svh) {
   :root {
-    --hero-min-h: calc(100svh - var(--header-height));
+    --hero-min-h: calc(100svh - var(--header-height) - var(--tab-bar-h));
   }
 }
 @media (min-width: 768px) {
@@ -192,6 +198,7 @@
     --logo-footer-h: 120px;
 
     --ratio-category-header: 21 / 9;
+    --tab-bar-h: 0px;                 /* no Tab_Bar on desktop */
 
     /* Header row from 1024 to 1279 px (Req 3.4, 14.1): logo (≈148) + eight 17 px links
        (≈586 with padding, FAQ held at --tap-min) + md CTA (≈192) only fit the 960 px row

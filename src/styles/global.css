@@ -51,9 +51,9 @@ html {
   text-size-adjust: 100%;
 }
 
-@media (width < 768px) {
+@media (width < 1024px) {
   html {
-    scroll-padding-bottom: calc(var(--ctc-height) + var(--space-4));
+    scroll-padding-bottom: calc(var(--tab-bar-h) + var(--space-4));
   }
 }
 

@@ -46,6 +46,10 @@ export type IconName =
   | 'ChevronRight'
   | 'Search'
   | 'SearchX'
+  // Tab_Bar and Mobile_Menu icons
+  | 'Ellipsis'
+  | 'CircleHelp'
+  | 'Users'
   // Service_Category icons
   | 'BrickWall'
   | 'PaintRoller'

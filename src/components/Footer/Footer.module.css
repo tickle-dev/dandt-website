@@ -12,10 +12,10 @@
   color: var(--surface-text);
 }
 
-/* Below 768 px, room for the Click_To_Call_Button inside the black Footer (Req 12.1, 24.5). */
-@media (width < 768px) {
+/* Below 1024 px, room for the fixed Tab_Bar inside the black Footer (Req 4.11, 12.1). */
+@media (width < 1024px) {
   .footer {
-    padding-bottom: calc(var(--space-6) + var(--ctc-height) + var(--space-4) * 2);
+    padding-bottom: calc(var(--space-6) + var(--tab-bar-h) + env(safe-area-inset-bottom, 0px));
   }
 }
 

@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router';
 import logoHeaderUrl from '../../assets/brand/logo-header.png';
 import { logoHeaderSize } from '../../assets/brand/logoSizes.ts';
@@ -6,13 +5,9 @@ import { useMenu } from '../../app/layoutContext.tsx';
 import { A11Y, CTA_LABELS, NAV_ITEMS, ROUTES, catalog } from '../../content/index.ts';
 import { getCategoryBySlug } from '../../lib/catalog.ts';
 import { getActiveNav } from '../../lib/nav.ts';
-import { MenuToggle } from '../MenuToggle/MenuToggle.tsx';
 import { Container } from '../ui/Container.tsx';
 import { CtaLink } from '../ui/CtaLink.tsx';
 import styles from './SiteHeader.module.css';
-
-/** Id of the `<nav aria-label="Main">`, which is the Mobile_Menu panel on compact viewports. */
-export const NAV_PANEL_ID = 'main-nav-panel';
 
 const isKnownCategory = (slug: string): boolean => getCategoryBySlug(catalog, slug) !== undefined;
 
@@ -20,39 +15,20 @@ const isKnownCategory = (slug: string): boolean => getCategoryBySlug(catalog, sl
 const logoStyle = { aspectRatio: `${logoHeaderSize.width} / ${logoHeaderSize.height}` };
 
 /**
- * Site_Header (Req 3, 4, 17.4, 17.7, 17.9–17.12, 17.14): sticky, opaque black,
- * one `--header-height` row with the Header_Logo link at the left.
+ * Site_Header (Req 3, 17.4, 17.7, 17.9–17.12, 17.14): sticky, opaque black, one
+ * `--header-height` row with the Header_Logo link at the left and the gold quote CTA at
+ * the right on every viewport ("Free Quote" on phones, "Get a Free Quote" from 768 px).
  *
- * DOM order is logo, tablet CTA, Menu_Toggle, `<nav aria-label="Main">`, desktop CTA.
- * Exactly one of the two header CTAs is displayed per viewport category (none on
- * mobile), so Tab order follows the visual order everywhere:
- * - desktop: logo → eight inline links → CTA (toggle hidden);
- * - tablet: logo → CTA → toggle → open panel (links, lg CTA);
- * - mobile: logo → toggle → open panel (links, lg CTA).
- * The single nav is the inline link row on desktop and, below 1024 px, the
- * `main-nav-panel` drop-down, `display: none` while closed (Req 4.1, 4.10).
- *
- * Viewport changes are dispatched by LayoutProvider, not here (Req 4.7, 4.8).
+ * The inline `<nav aria-label="Main">` is displayed only from 1024 px. Below that, the
+ * TabBar at the bottom of the viewport is the main navigation (Req 4), so the header
+ * holds no menu button. DOM order (logo, links, CTA) matches the visual order.
  */
 export function SiteHeader() {
-  const { open, dispatch } = useMenu();
+  const { dispatch } = useMenu();
   const { pathname } = useLocation();
-  const toggleRef = useRef<HTMLButtonElement>(null);
   const active = getActiveNav(pathname, isKnownCategory);
 
-  // Escape closes the open Mobile_Menu and returns focus to the toggle (Req 4.5).
-  useEffect(() => {
-    if (!open) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape') return;
-      dispatch({ type: 'CLOSE' });
-      toggleRef.current?.focus();
-    };
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
-  }, [open, dispatch]);
-
-  // Any link selection closes the menu, including the link to the current page (Req 4.4).
+  // Following a header link also closes the TabBar's More sheet if it is open.
   const close = () => dispatch({ type: 'CLOSE' });
 
   return (
@@ -69,24 +45,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <div className={styles.ctaTablet}>
-          <CtaLink to={ROUTES.contact} variant="primary" size="md" onClick={close}>
-            {CTA_LABELS.getQuote}
-          </CtaLink>
-        </div>
-
-        <MenuToggle
-          ref={toggleRef}
-          open={open}
-          controls={NAV_PANEL_ID}
-          onToggle={() => dispatch({ type: 'TOGGLE' })}
-        />
-
-        <nav
-          id={NAV_PANEL_ID}
-          aria-label={A11Y.mainNav}
-          className={open ? `${styles.nav} ${styles.navOpen}` : styles.nav}
-        >
+        <nav aria-label={A11Y.mainNav} className={styles.nav}>
           <ul className={styles.list}>
             {NAV_ITEMS.map((item) => {
               const current = active?.key === item.key ? active.ariaCurrent : undefined;
@@ -104,16 +63,12 @@ export function SiteHeader() {
               );
             })}
           </ul>
-          <div className={styles.panelCta}>
-            <CtaLink to={ROUTES.contact} variant="primary" size="lg" fullWidth onClick={close}>
-              {CTA_LABELS.getQuote}
-            </CtaLink>
-          </div>
         </nav>
 
-        <div className={styles.ctaDesktop}>
+        <div className={styles.cta}>
           <CtaLink to={ROUTES.contact} variant="primary" size="md" onClick={close}>
-            {CTA_LABELS.getQuote}
+            <span className={styles.ctaLong}>{CTA_LABELS.getQuote}</span>
+            <span className={styles.ctaShort}>{CTA_LABELS.getQuoteShort}</span>
           </CtaLink>
         </div>
       </Container>
