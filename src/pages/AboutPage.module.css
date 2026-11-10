@@ -1,0 +1,56 @@
+/* About_Page (design.md, Page layouts → About). Every value comes from tokens.css. */
+
+/*
+ * 2 Our Story: stacked below 1024 px, text first. The image keeps the text
+ * measure so both share one column width. Desktop: text left, image right.
+ */
+.story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-7);
+}
+
+.storyMedia {
+  max-width: var(--measure);
+}
+
+@media (min-width: 1024px) {
+  .story {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: start;
+  }
+
+  .storyMedia {
+    max-width: none;
+  }
+}
+
+/* 3 Stats band: Inter 600 figures at --fs-h2 in off-white, Inter labels below (Req 9.3). */
+.stat {
+  margin: 0;
+  color: var(--color-offwhite);
+}
+
+.statValue {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+}
+
+.statLabel {
+  display: block;
+  font-family: var(--font-body);
+}
+
+/* 5 Service area: "See all service areas" below the sentence. */
+.areaLink {
+  margin-top: var(--space-5);
+}
+
+/* 6 Closing banner: space between the sentence and its Primary CTA (same as the other banners). */
+.bannerCta {
+  margin-top: var(--space-6);
+}

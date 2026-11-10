@@ -1,0 +1,61 @@
+/*
+ * Shared filter option style (Req 26.20): transparent with a 1 px gray border
+ * and the section's body text color; hover gives the surface gold border
+ * (gold-dark on off-white, Req 13.7). The selected option is gold with black
+ * text and turns gold-light on hover. Options wrap onto left-aligned rows with
+ * one gap value both ways, never truncate and are at least 44 px tall (Req 14.6).
+ */
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: var(--tap-min);
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+  border: var(--border-width) solid var(--color-gray);
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--surface-text);
+  font-family: var(--font-body);
+  line-height: var(--lh-heading);
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  appearance: none;
+}
+
+.option:hover {
+  border-color: var(--surface-accent);
+}
+
+.option[aria-pressed="true"] {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+.option[aria-pressed="true"]:hover {
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  color: var(--color-black);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .option {
+    transition:
+      background-color var(--duration-fast),
+      border-color var(--duration-fast),
+      color var(--duration-fast);
+  }
+}

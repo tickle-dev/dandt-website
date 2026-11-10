@@ -1,0 +1,71 @@
+/*
+ * FAQ item style (design.md, Visual Design: FAQ item; Req 19.7, 26.2).
+ * Every value comes from tokens.css. The fade is declared only under
+ * prefers-reduced-motion: no-preference, so reduced motion shows the final
+ * state immediately (Req 15.9).
+ */
+
+/* 1 px gray dividers between FAQ_Items. */
+.item + .item {
+  border-top: var(--border-width) solid var(--color-gray);
+}
+
+/* The h3 keeps the global h3 size; the button inside carries the text. */
+.question {
+  margin: 0;
+}
+
+/*
+ * Full-width question button at the h3 size and font (Req 26.2): question text on the
+ * left, Plus/Minus icon on the right, at least 44 px tall (Req 14.4).
+ */
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: var(--space-4) 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  text-align: start;
+  cursor: pointer;
+}
+
+.questionText {
+  min-width: 0;
+}
+
+/* 20 px state icon in the surface gold (--color-gold-dark on off-white). */
+.icon {
+  flex-shrink: 0;
+  color: var(--surface-accent);
+}
+
+/* Answer panel: --space-4 below the text before the next divider. */
+.answer {
+  padding-bottom: var(--space-4);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Expanding fades the answer in over 150 ms; collapsing is immediate. */
+@media (prefers-reduced-motion: no-preference) {
+  .answer:not([hidden]) {
+    animation: fade-in var(--duration-fast) ease-out;
+  }
+}

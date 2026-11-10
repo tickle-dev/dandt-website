@@ -1,0 +1,39 @@
+/*
+ * Page_Section (Req 13.12, 26.9, 26.10, 26.11, 26.14).
+ * One padding value for every section; solid black or off-white only
+ * (charcoal is never a section background).
+ */
+.section {
+  padding-block: var(--section-pad);
+}
+
+.section[data-tone="dark"] {
+  background-color: var(--color-black);
+}
+
+.section[data-tone="light"] {
+  background-color: var(--color-offwhite);
+}
+
+/*
+ * Separator (Req 26.11): when two adjacent sections share a tone, the second
+ * gets a full-width 1 px gray top border, so pages never place separators by
+ * hand. The border sits on the full-width section, outside the Container.
+ */
+.section[data-tone="dark"] + .section[data-tone="dark"],
+.section[data-tone="light"] + .section[data-tone="light"] {
+  border-top: var(--border-width) solid var(--color-gray);
+}
+
+/*
+ * Alignment (Req 26.14): left by default; centered only for the hero, the
+ * closing CTA banners and the no-match block. Centered sections also center
+ * measure-limited blocks such as paragraphs (max-width --measure).
+ */
+.center {
+  text-align: center;
+}
+
+.center :where(p) {
+  margin-inline: auto;
+}

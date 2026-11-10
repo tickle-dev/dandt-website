@@ -1,0 +1,154 @@
+/*
+ * Footer (Req 12, 14.6, 17.5, 17.7, 23, 24.5, 26.11, 26.13, 27.2).
+ * Opaque black with a 1 px gray top border. Content sits in the shared Container,
+ * so its left edge matches every Page_Section. Grid fractions and column counts
+ * below are layout values, not Theme values.
+ */
+.footer {
+  padding-top: var(--section-pad);
+  padding-bottom: var(--space-6);
+  border-top: var(--border-width) solid var(--color-gray);
+  background-color: var(--color-black);
+  color: var(--surface-text);
+}
+
+/* Below 768 px, room for the Click_To_Call_Button inside the black Footer (Req 12.1, 24.5). */
+@media (width < 768px) {
+  .footer {
+    padding-bottom: calc(var(--space-6) + var(--ctc-height) + var(--space-4) * 2);
+  }
+}
+
+/* Mobile: one column (Req 12.9). Tablet: 2 × 2. Desktop: brand 2fr, then 1fr each. */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-7) var(--grid-gap);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
+  }
+}
+
+.brand,
+.column {
+  min-width: 0;
+}
+
+/* Full Logo at --logo-footer-h; width follows the intrinsic ratio (Req 17.5, 17.11, 17.12). */
+.logo {
+  display: block;
+  width: auto;
+  height: var(--logo-footer-h);
+  margin-bottom: var(--space-5);
+  overflow: hidden;
+}
+
+.name {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+.description {
+  margin-bottom: var(--space-4);
+}
+
+/* Tagline (Req 27.2): a paragraph, never a heading. */
+.tagline {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-tagline);
+  text-transform: uppercase;
+  color: var(--color-offwhite);
+}
+
+/* Column labels: styled text, not headings. */
+.label {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-cta);
+  text-transform: uppercase;
+  color: var(--surface-accent);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Footer links: off-white, gold on hover, at least 44 × 44 px (Req 14.6, 26.21). */
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  /* Separates links that wrap onto two lines (long category names in the desktop
+     column); one-line links stay at the 44 px minimum height. */
+  padding-block: var(--space-2);
+  color: var(--surface-text);
+  text-decoration: none;
+}
+
+.link:visited {
+  color: var(--surface-text);
+}
+
+.link:hover {
+  color: var(--surface-accent);
+}
+
+/* A long email never forces sideways scrolling at 320 px (Req 12.9). */
+.email {
+  overflow-wrap: anywhere;
+}
+
+.text {
+  padding-block: var(--space-2);
+  overflow-wrap: break-word;
+}
+
+.social {
+  margin-top: var(--space-3);
+}
+
+/* Bottom bar after a 1 px gray divider: copyright and the Concept demo notice (Req 1.6, 12.7). */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: var(--border-width) solid var(--color-gray);
+}
+
+.copyright {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--surface-muted);
+}
+
+.notice {
+  max-width: var(--measure);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link {
+    transition: color var(--duration-fast);
+  }
+}

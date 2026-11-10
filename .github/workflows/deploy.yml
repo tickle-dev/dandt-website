@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]          # the repository's default branch (Req 25.3); rename if the default branch differs
+  workflow_dispatch:          # manual run (Req 25.4)
+
+permissions:                  # Req 25.2
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:                  # Req 25.2, 25.14: never cancel a running deployment
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # Manual runs on any other branch skip the build, so deploy is skipped too (Req 25.5).
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v6
+
+      # base_path is "" for a user, organization or custom-domain site and "/<repo>" for a
+      # project site, so appending "/" yields "/" or "/<repo>/" (Req 25.8). The output is
+      # passed through env rather than interpolated into the script.
+      - name: Compute BASE_PATH
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: echo "BASE_PATH=${PAGES_BASE_PATH}/" >> "$GITHUB_ENV"
+
+      - name: Show BASE_PATH
+        run: echo "Building with BASE_PATH=$BASE_PATH"
+
+      - name: Build
+        run: npm run build
+
+      - name: Check build output
+        run: test -f dist/index.html && test -f dist/404.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

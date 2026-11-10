@@ -1,0 +1,44 @@
+/*
+ * Column grid for Cards and the other column grids in the page tables
+ * (Req 14.2, 14.3, 14.4, 14.10, 26.7, 26.8, 26.31).
+ * A fixed repeat(N, minmax(0, 1fr)) with no auto-fit, so a short last row keeps
+ * the full-row card width and aligns left. One --grid-gap in both directions.
+ * The column counts below are counts, not Theme values.
+ */
+.grid {
+  --cols: var(--cols-mobile);
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: var(--grid-gap);
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* <li> wrapper used when the grid renders as a list; stretched, so a Card inside fills it. */
+.item {
+  min-inline-size: 0;
+}
+
+.mobile1 { --cols-mobile: 1; }
+.mobile2 { --cols-mobile: 2; }
+
+.tablet1 { --cols-tablet: 1; }
+.tablet2 { --cols-tablet: 2; }
+
+.desktop2 { --cols-desktop: 2; }
+.desktop3 { --cols-desktop: 3; }
+.desktop4 { --cols-desktop: 4; }
+
+@media (min-width: 768px) {
+  .grid {
+    --cols: var(--cols-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    --cols: var(--cols-desktop);
+  }
+}

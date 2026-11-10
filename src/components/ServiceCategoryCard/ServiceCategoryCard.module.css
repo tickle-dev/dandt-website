@@ -1,0 +1,39 @@
+/* Service_Category card (Req 6.2, 6.3, 26.7). Card styling comes from cardProps(). */
+.icon {
+  flex-shrink: 0;
+  margin-block-end: var(--space-4);
+  /* Gold on charcoal, gold-dark on off-white (data-tone from cardProps). */
+  color: var(--surface-accent);
+}
+
+.name {
+  color: var(--surface-text);
+}
+
+.summary {
+  color: var(--surface-text);
+}
+
+/*
+ * "Explore": a <span> styled like a text link (Req 26.21): surrounding text
+ * color, 1 px underline, 2 px while the card is hovered. The Card's last-child
+ * rule pins it to the bottom (Req 26.7).
+ */
+.explore {
+  align-self: flex-start;
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--border-width);
+}
+
+@media (hover: hover) {
+  .card:hover .explore {
+    text-decoration-thickness: var(--border-width-strong);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .explore {
+    transition: text-decoration-thickness var(--duration-fast);
+  }
+}

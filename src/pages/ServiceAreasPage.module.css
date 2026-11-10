@@ -1,0 +1,60 @@
+/*
+ * Service_Areas_Page layout (design.md, Page layouts → Service Areas; Req 18, 26.12);
+ * every value comes from tokens.css. Grid fractions and column counts are layout values,
+ * not Theme values.
+ */
+
+/* Below 1024 px the city list and the map stack in DOM order; from 1024 px they sit
+   side by side, the list on the left and the map on the right. */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6) var(--space-7);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/*
+ * Service_Area_City list: read down each column in alphabetical order. Two columns on
+ * mobile, three from 768 px (tablet, and the left half on desktop). Native list markers
+ * keep list semantics; the marker uses the surface accent (gold-dark on off-white).
+ */
+.cities {
+  columns: 2;
+  column-gap: var(--grid-gap);
+  margin: 0;
+  padding-left: var(--space-5);
+}
+
+.cities li {
+  break-inside: avoid;
+  padding-bottom: var(--space-2);
+}
+
+.cities li::marker {
+  color: var(--surface-accent);
+}
+
+@media (min-width: 768px) {
+  .cities {
+    columns: 3;
+  }
+}
+
+.map {
+  min-width: 0;
+}
+
+/* Nearby-cities note after the list and map, then the section's Primary CTA. */
+.note {
+  margin-top: var(--space-6);
+}
+
+.cta {
+  margin-top: var(--space-6);
+}

@@ -1,0 +1,165 @@
+/*
+ * Quote_Form (Req 11.3–11.5, 14.6, 14.7, 14.9, 26.14, 26.25; design.md, Form fields).
+ * Sits in an off-white (light) section, so --surface-accent resolves to gold-dark
+ * for the global focus ring.
+ */
+.root {
+  min-width: 0;
+}
+
+/* Always in the DOM (polite live region, Req 15.8); boxed only while it holds the message. */
+.confirmation:not(:empty) {
+  margin-bottom: var(--space-5);
+  padding: var(--space-4);
+  border: var(--border-width) solid var(--color-gray);
+  border-radius: var(--radius-sm);
+  font-weight: var(--fw-semibold);
+}
+
+/* One column on mobile and tablet (Req 14.9); name/email and phone/category pair up on desktop. */
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-5);
+}
+
+@media (min-width: 1024px) {
+  .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.group {
+  min-width: 0;
+}
+
+/* Label above the field in Inter 600 at --fs-body. */
+.label,
+.legend {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-body);
+}
+
+.marker {
+  font-weight: var(--fw-semibold);
+}
+
+.optional {
+  color: var(--surface-muted);
+  font-weight: var(--fw-regular);
+}
+
+/*
+ * Field: 48 px, off-white, 1 px gray border, --radius-sm. The padding is the inner
+ * spacing minus the border, so the 2 px error border keeps the field's size and
+ * the text position (padding shrinks by 1 px on each side).
+ */
+.field {
+  --field-border: var(--border-width);
+  --field-pad-y: var(--space-2);
+  --field-pad-x: var(--space-3);
+  --field-pad-end: var(--field-pad-x);
+
+  display: block;
+  width: 100%;
+  height: var(--field-height);
+  margin: 0;
+  padding:
+    calc(var(--field-pad-y) - var(--field-border))
+    calc(var(--field-pad-end) - var(--field-border))
+    calc(var(--field-pad-y) - var(--field-border))
+    calc(var(--field-pad-x) - var(--field-border));
+  border: var(--field-border) solid var(--color-gray);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-offwhite);
+  color: var(--color-black);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+textarea.field {
+  --field-pad-y: var(--space-3);
+
+  height: auto;
+  min-height: var(--textarea-min-height);
+  resize: vertical;
+}
+
+/* Native select without the UA box, with a CSS-drawn chevron at the right. */
+select.field {
+  --field-pad-end: calc(var(--field-pad-x) + var(--icon-md) + var(--space-2));
+
+  appearance: none;
+  background-image: var(--select-chevron);
+  background-repeat: no-repeat;
+  background-position: right var(--field-pad-x) center;
+  background-size: var(--icon-md) var(--icon-md);
+  cursor: pointer;
+}
+
+.invalid {
+  --field-border: var(--border-width-strong);
+
+  border-color: var(--color-error);
+}
+
+/* Error directly below the field, left-aligned with it (Req 26.25): icon + text in --color-error. */
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 0;
+  color: var(--color-error);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+}
+
+/* Centers the 16 px icon on the first text line. */
+.errorIcon {
+  flex: none;
+  margin-top: calc((var(--fs-small) * var(--lh-body) - var(--icon-sm)) / 2);
+}
+
+/* Preferred contact method radios. */
+.fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+}
+
+.radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-5);
+}
+
+/* The whole label is the 44 px tap target (Req 14.6). */
+.radioLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-min);
+  cursor: pointer;
+}
+
+.radio {
+  flex: none;
+  width: var(--icon-md);
+  height: var(--icon-md);
+  margin: 0;
+  accent-color: var(--color-gold-dark);
+  cursor: pointer;
+}

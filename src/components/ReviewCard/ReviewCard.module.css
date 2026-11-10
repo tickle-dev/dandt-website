@@ -1,0 +1,44 @@
+/* Review_Card (Req 20.4–20.6, 26.6, 26.7). Card styling comes from <Card>. */
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* Inter 600, not a heading (Req 15.2). */
+.name {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-body);
+  color: var(--surface-text);
+}
+
+.meta {
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+  color: var(--surface-muted);
+}
+
+.stars {
+  align-self: flex-start;
+  margin-block-start: var(--space-2);
+}
+
+.quote {
+  margin: 0;
+}
+
+/* Full text with no clamping or truncation at any width (Req 20.4). */
+.text {
+  margin: 0;
+  color: var(--surface-text);
+  overflow-wrap: break-word;
+}

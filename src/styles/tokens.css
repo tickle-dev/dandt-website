@@ -1,0 +1,215 @@
+/*
+ * Theme tokens: the only file in the codebase with literal colors, sizes,
+ * spacing, radii and shadows (Req 13.3). Every other stylesheet uses var(--…).
+ * Mobile values sit in :root; the 768 px and 1024 px blocks override them.
+ */
+
+:root {
+  /* Colors (Req 13.1) */
+  --color-black: #000000;          /* identical to logo background */
+  --color-charcoal: #1A1A1A;
+  --color-offwhite: #F7F5F0;
+  --color-gray: #6B6B6B;
+  --color-gold: #CAA973;           /* median of logo wordmark gold pixels */
+  --color-gold-dark: #7A5F2E;      /* gold on off-white: text, lines, focus ring */
+  --color-gold-light: #DCC497;     /* Primary CTA and selected filter hover */
+  --color-error: #B3261E;          /* always paired with CircleAlert icon */
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  /* Font families (Req 13.4, 26.3) */
+  --font-heading: 'Cinzel Variable', serif;
+  --font-body: 'Inter Variable', sans-serif;
+
+  /* Type scale, mobile values (Req 26.1) */
+  --fs-h1: 36px;
+  --fs-h2: 28px;
+  --fs-h3: 20px;
+  --fs-body-lg: 18px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+
+  /* Weights, line heights, letter-spacing */
+  --fw-regular: 400;               /* body */
+  --fw-semibold: 600;              /* headings, labels */
+  --fw-bold: 700;                  /* Cinzel h1 only */
+  --lh-body: 1.6;
+  --lh-heading: 1.2;
+  --ls-heading: 0.02em;
+  --ls-cta: 0.04em;
+  --measure: 72ch;
+
+  /* Spacing scale: 9 steps, multiples of 4 (Req 13.5) */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px; --space-5: 24px;
+  --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px;
+
+  /* Layout spacing, mobile values */
+  --section-pad: var(--space-7);   /* 48 */
+  --grid-gap: var(--space-4);      /* 16 */
+  --card-pad: var(--space-5);      /* 24 */
+  --gutter: var(--space-4);        /* 16 */
+  --container-max: 1280px;
+
+  /* Radii (Req 26.1) */
+  --radius-sm: 4px;                /* buttons, inputs, filter options */
+  --radius-md: 8px;                /* Cards, images, map, Project_Viewer */
+  --radius-pill: 999px;            /* Click_To_Call_Button and the round Project_Viewer buttons */
+
+  /* Shadows */
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-float: 0 6px 20px rgba(0, 0, 0, 0.35);
+
+  /* Header and logo, mobile values (Req 3.11, 17.4, 17.5) */
+  --header-height: 64px;
+  --logo-header-h: 48px;           /* Header_Logo */
+  --logo-footer-h: 112px;          /* full Logo; same on tablet */
+
+  /* Header row (desktop width budget, Req 3.4) */
+  --nav-link-pad-x: var(--space-2); /* 8 */
+  --header-gap: var(--space-4);    /* 16 */
+
+  /* CTA sizes (Req 13.8): one padding per size wherever it appears, header CTA included;
+     md label --fs-body, lg label --fs-body-lg */
+  --cta-md-pad: 12px 20px;
+  --cta-lg-pad: 16px 32px;
+  --cta-md-fs: var(--fs-body);
+  --cta-lg-fs: var(--fs-body-lg);
+  --cta-secondary-bg: var(--color-overlay); /* dark backing behind the Secondary label over photos */
+
+  /* Click_To_Call_Button and interaction */
+  --ctc-height: 48px;
+  --tap-min: 44px;
+  --border-width: 1px;
+  --focus-width: 3px;
+  --duration-fast: 150ms;
+
+  /* ------------------------------------------------------------------
+   * Component tokens (not in the design block): the remaining literal
+   * values the components need, so no other file holds one.
+   * ------------------------------------------------------------------ */
+
+  /* Borders and lines */
+  --border-width-strong: 2px;      /* error field border, 2 px link-hover and nav underlines */
+  --cta-border-width: 2px;         /* Primary and Secondary CTA border */
+  --star-stroke: 1.5px;            /* unfilled star outline */
+
+  /* Gold accent rule under h2 headings (Req 26.18) */
+  --accent-rule-width: 48px;
+  --accent-rule-height: 2px;
+
+  /* Icon sizes (Req 13.10) */
+  --icon-sm: 16px;                 /* stars, field error icon */
+  --icon-md: 20px;                 /* FAQ Plus/Minus, Click_To_Call Phone */
+  --icon-lg: 32px;                 /* category and highlight card icons */
+  --icon-social: 24px;             /* Social_Links brand icons (Req 13.10, 23.2) */
+
+  /* Form fields (Req 11, 26.25) */
+  --field-height: 48px;
+  --textarea-min-height: 160px;    /* project details: about five lines of body text */
+  /* Select chevron (lucide ChevronDown path) in --color-black, drawn by CSS on the native select */
+  --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+  /* Focus and hover motion */
+  --focus-offset: 2px;             /* outline-offset for the focus ring (Req 13.11) */
+  --visually-hidden-size: 1px;     /* .visually-hidden clip box (screen-reader-only text) */
+  --card-lift: 2px;                /* interactive card hover: translateY(calc(-1 * var(--card-lift))) */
+
+  /* Navigation */
+  --nav-underline-offset: 6px;     /* active nav link underline offset */
+  --ls-nav: 0.08em;                /* desktop nav labels: uppercase with tracking */
+  --nav-fs: var(--fs-small);       /* desktop nav label size */
+  --nav-indicator-h: 2px;          /* gold bar under the hovered / active desktop link */
+  --nav-indicator-inset: 10px;     /* distance of that bar from the link box bottom */
+  --nav-panel-accent-w: 3px;       /* gold bar at the left of the active Mobile_Menu link */
+  --nav-hover-bg: rgba(202, 169, 115, 0.08);  /* faint gold wash behind hovered / active links */
+  --shadow-header: 0 4px 16px rgba(0, 0, 0, 0.35);  /* lifts the sticky header off the page */
+  --header-accent: linear-gradient(90deg, rgba(202, 169, 115, 0) 0%, rgba(202, 169, 115, 0.55) 50%, rgba(202, 169, 115, 0) 100%);  /* gold hairline fading out at both ends */
+  --z-header: 100;                 /* sticky Site_Header and its Mobile_Menu panel */
+  --z-skip-link: 1000;             /* focused SkipLink above everything */
+
+  /* Footer Tagline */
+  --ls-tagline: 0.08em;
+
+  /* Text measures */
+  --hero-heading-measure: 20ch;    /* hero h1 max-width for balanced lines */
+  /* Home hero min-height: the first viewport below the Site_Header (Req 6.10, 6.11);
+     100svh where supported, see @supports below */
+  --hero-min-h: calc(100vh - var(--header-height));
+
+  /* Project_Viewer (Req 21.12); 60dvh where supported, see @supports below */
+  --viewer-photo-max-h: 60vh;      /* photo max height inside the panel */
+  --viewer-panel-max-w: 960px;     /* panel max width on wide viewports */
+  --z-viewer: 500;                 /* above the Site_Header and Click_To_Call_Button */
+  --z-viewer-toolbar: 1;           /* sticky close row above the scrolling photo inside the panel */
+
+  /* Aspect ratios, mobile values (Req 22.6, 26.23) */
+  --ratio-map: 4 / 3;              /* Map_Embed */
+  --ratio-category-header: 4 / 3;  /* Service_Category header image */
+  /* Stacking: Click_To_Call_Button floats above page content (Req 24.1) */
+  --z-ctc: 50;
+  --ratio-project-card: 4 / 3;     /* Project_Card image, all viewports (Req 26.7) */
+}
+
+/* Dynamic viewport height, so mobile browser toolbars don't push the photo past 60% (Req 21.12). */
+@supports (height: 1dvh) {
+  :root {
+    --viewer-photo-max-h: 60dvh;
+  }
+}
+
+/* Small viewport height, so the hero never runs under mobile browser toolbars (Req 6.11). */
+@supports (height: 1svh) {
+  :root {
+    --hero-min-h: calc(100svh - var(--header-height));
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --fs-h1: 44px;
+    --fs-h2: 32px;
+    --fs-h3: 22px;
+    --fs-body-lg: 20px;
+    --section-pad: var(--space-8); /* 64 */
+    --grid-gap: var(--space-5);    /* 24 */
+    --gutter: var(--space-5);      /* 24 */
+    --header-height: 80px;
+    --logo-header-h: 56px;         /* same on desktop */
+
+    --ratio-map: 16 / 9;           /* same on desktop */
+    --ratio-category-header: 16 / 9;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --fs-h1: 56px;
+    --fs-h2: 40px;
+    --fs-h3: 24px;
+    --fs-body: 17px;
+    --section-pad: var(--space-9); /* 96 */
+    --grid-gap: var(--space-6);    /* 32 */
+    --card-pad: var(--space-6);    /* 32 */
+    --gutter: var(--space-6);      /* 32 */
+    --logo-footer-h: 120px;
+
+    --ratio-category-header: 21 / 9;
+
+    /* Header row from 1024 to 1279 px (Req 3.4, 14.1): logo (≈148) + eight 17 px links
+       (≈586 with padding, FAQ held at --tap-min) + md CTA (≈192) only fit the 960 px row
+       with 4 px link padding and 8 px gaps. The 8 px gaps leave ≈18 px of slack at 1024 px,
+       so the row also fits when a classic 15–17 px scrollbar narrows the layout. */
+    --nav-link-pad-x: var(--space-1); /* 4 */
+    --header-gap: var(--space-2);     /* 8 */
+    --nav-fs: 13px;                   /* uppercase labels, slightly smaller below 1280 px */
+    --ls-nav: 0.04em;
+  }
+}
+
+/* From 1280 px the row has room for the design's 8 px link padding and 16 px gaps. */
+@media (min-width: 1280px) {
+  :root {
+    --nav-link-pad-x: var(--space-2); /* 8 */
+    --header-gap: var(--space-4);     /* 16 */
+    --nav-fs: var(--fs-small);        /* 14 */
+    --ls-nav: 0.08em;
+  }
+}

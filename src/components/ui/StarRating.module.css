@@ -1,0 +1,36 @@
+/*
+ * Rating stars (Req 13.7, 20.5, 20.6).
+ *
+ * Stroke width: lucide draws in a 24-unit viewBox and sets stroke-width="2" as
+ * an attribute, so a plain stroke-width on a 16 px icon would scale by 16/24.
+ * The CSS stroke-width overrides lucide's attribute, and
+ * vector-effect: non-scaling-stroke on the drawn shapes makes the browser
+ * apply it in screen pixels, so the outline is exactly --star-stroke (1.5 px)
+ * at any icon size. vector-effect is not inherited, hence the child selector.
+ */
+.rating {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.star {
+  stroke-width: var(--star-stroke);
+}
+
+.star > * {
+  vector-effect: non-scaling-stroke;
+}
+
+/* Gold on charcoal or black, gold-dark on off-white, via the surface variable. */
+.filled {
+  fill: var(--surface-accent);
+  stroke: var(--surface-accent);
+}
+
+/* Gray outline, no fill: 3.27:1 on charcoal, 4.89:1 on off-white, 3.94:1 on black. */
+.empty {
+  fill: none;
+  stroke: var(--color-gray);
+}

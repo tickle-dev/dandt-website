@@ -1,0 +1,33 @@
+/* Menu_Toggle (Req 4.1, 4.11): off-white icon button, 44 × 44 px, compact viewports only. */
+.toggle {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--surface-text);
+  cursor: pointer;
+  appearance: none;
+}
+
+.toggle:hover {
+  color: var(--color-gold);
+}
+
+@media (width >= 1024px) {
+  .toggle {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toggle {
+    transition: color var(--duration-fast);
+  }
+}

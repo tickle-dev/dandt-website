@@ -1,0 +1,1035 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Scaffold Vite + React + TypeScript at the workspace root": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286927887
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286933657
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287209198
+      }
+    ],
+    "1.2 Implement `src/lib/basePath.ts` and `vite.config.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286927943
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287215445
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287549013
+      }
+    ],
+    "2.1 Create `src/styles/tokens.css`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928006
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287215500
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287549757
+      }
+    ],
+    "2.2 Create `src/styles/global.css` and load the fonts": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928042
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287566594
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288422002
+      }
+    ],
+    "3.1 Implement `Container` and `PageSection`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928079
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288436790
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288707469
+      }
+    ],
+    "3.2 Implement `SectionHeading` and `PageHeading`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928114
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288436835
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288707871
+      }
+    ],
+    "3.3 Implement `CardGrid` and `Card`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928151
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288436925
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288709189
+      }
+    ],
+    "3.4 Implement `CtaLink` and `TextLink`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928190
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288436882
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288709894
+      }
+    ],
+    "3.5 Implement the `Icon` registry, `Notice` and `LiveRegion`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928228
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288437490
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288711079
+      }
+    ],
+    "3.6 Implement `FilterButtons`, `StarRating` and `Breadcrumb`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928257
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288845847
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289193876
+      }
+    ],
+    "4.1 Add the photo types, `shouldLoadImage` and the initial photo manifest": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928289
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287216129
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287550945
+      }
+    ],
+    "4.2 Implement `SmartImage` with intentional placeholders": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928322
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288845910
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289193988
+      }
+    ],
+    "4.3 Write `scripts/optimize-photos.mjs`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928363
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287566655
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288422188
+      }
+    ],
+    "4.4 Write the photo sourcing list and `ATTRIBUTIONS.md`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928404
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287567019
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288423394
+      }
+    ],
+    "5.1 Write and run `scripts/crop-logo.mjs`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928441
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287217073
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287551753
+      }
+    ],
+    "6.1 Complete `src/content/types.ts` and write `src/content/uiText.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928480
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287568345
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288424599
+      }
+    ],
+    "6.2 Implement `src/lib/slug.ts` and `src/lib/catalog.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928517
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288717406
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288836151
+      }
+    ],
+    "6.3 Write `src/content/serviceCatalog.ts` from Appendix A": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928547
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288845943
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289193954
+      }
+    ],
+    "7.1 Write `site.ts`, `contact.ts` and `social.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928580
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288846965
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289194015
+      }
+    ],
+    "7.2 Write `home.ts`, `about.ts` and `pages.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928614
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288848075
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289195129
+      }
+    ],
+    "7.3 Write `projects.ts` and `reviews.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928647
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289203786
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289406227
+      }
+    ],
+    "7.4 Write `faq.ts` and `serviceAreas.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928683
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289203850
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289406277
+      }
+    ],
+    "7.5 Create `src/content/index.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928739
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289669828
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289816745
+      }
+    ],
+    "8.1 Implement the shell logic in `src/lib/`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928776
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289203884
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289407360
+      }
+    ],
+    "8.2 Implement the shell hooks and the layout state": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928806
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289669894
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289816863
+      }
+    ],
+    "8.3 Implement `SkipLink`, `SiteHeader`, `MenuToggle` and the nav panel": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928846
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289824402
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794290158556
+      }
+    ],
+    "8.4 Implement `Footer` and `SocialLinks`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928884
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289825574
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794290159478
+      }
+    ],
+    "8.5 Implement `ClickToCallButton`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928914
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289826773
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794290160727
+      }
+    ],
+    "8.6 Wire the router and `RootLayout`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928947
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794290609905
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291155769
+      }
+    ],
+    "9.1 Implement `ServiceCategoryCard` and `ReviewCard`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286928981
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289827955
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794290161869
+      }
+    ],
+    "9.2 Build `HomePage` per the Home table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929014
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291166589
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291520555
+      }
+    ],
+    "9.3 Build `NotFoundPage` per the Not Found table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929047
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291166654
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291520622
+      }
+    ],
+    "10. Checkpoint: shell, Home and Not Found pages": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929081
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794296440772
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794296638210
+      }
+    ],
+    "11.1 Implement `src/lib/serviceFilter.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929123
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289204866
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289408552
+      }
+    ],
+    "11.2 Implement `ServiceFilter` and build `ServicesPage` per the Services table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929161
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291166685
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291521159
+      }
+    ],
+    "11.3 Build `ServiceCategoryPage` per the Service Category table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929197
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291167678
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291522285
+      }
+    ],
+    "12.1 Implement `src/lib/categoryFilter.ts` and `src/lib/viewerNav.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929234
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289205980
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289409756
+      }
+    ],
+    "12.2 Implement `ProjectCard`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929268
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289828760
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794290163078
+      }
+    ],
+    "12.3 Implement `ProjectViewer`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929306
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794290611063
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291156331
+      }
+    ],
+    "12.4 Build `ProjectsPage` per the Projects table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929362
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291168499
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291523532
+      }
+    ],
+    "13.1 Implement `src/lib/ratings.ts` and `RatingSummary`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929400
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289669934
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289818008
+      }
+    ],
+    "13.2 Build `ReviewsPage` per the Reviews table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929437
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291530584
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291879854
+      }
+    ],
+    "14.1 Implement `src/lib/cities.ts` and `MapEmbed`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929476
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289670247
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289819203
+      }
+    ],
+    "14.2 Build `ServiceAreasPage` per the Service Areas table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929507
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291531396
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291881026
+      }
+    ],
+    "14.3 Implement `faqState` and `FaqAccordion`, and build `FaqPage` per the FAQ table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929539
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291532757
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291882538
+      }
+    ],
+    "14.4 Build `AboutPage` per the About table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929598
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291533819
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291883735
+      }
+    ],
+    "15.1 Implement `src/lib/quoteForm.ts`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929634
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289415385
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289661090
+      }
+    ],
+    "15.2 Implement `QuoteForm`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929671
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794290169249
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794290602984
+      }
+    ],
+    "15.3 Build `ContactPage` per the Contact table": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929708
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291534532
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291885008
+      }
+    ],
+    "16. Checkpoint: all pages built": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929744
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794296642899
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794296813108
+      }
+    ],
+    "17.1 Write `.github/workflows/deploy.yml` as in the design": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929782
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287569254
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288425802
+      }
+    ],
+    "17.2 Write `README.md`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929815
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291892656
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794292254453
+      }
+    ],
+    "18.1 Check every page and UI state at 375, 768, 1280 and 1920 px": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929848
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794292354213
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794295179131
+      }
+    ],
+    "18.2 Check the header row at 1024 px, the hero contrast, the photos and the copy": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794286929881
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794295184243
+      },
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794296432398
+      }
+    ],
+    "1. Scaffold the project and the build configuration": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287549078
+      }
+    ],
+    "5. Create the logo assets": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794287551794
+      }
+    ],
+    "2. Build the Theme: tokens, fonts and global styles": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794288422072
+      }
+    ],
+    "3. Build the shared UI building blocks in `src/components/ui/`": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289194051
+      }
+    ],
+    "6. Define the content types and the Service_Catalog": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289194094
+      }
+    ],
+    "4. Build `SmartImage` and the photo pipeline": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289194125
+      }
+    ],
+    "7. Write the Placeholder_Content in the Brand_Voice": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794289816825
+      }
+    ],
+    "8. Build the app shell": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291155825
+      }
+    ],
+    "11. Build the Services and Service Category pages": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291522328
+      }
+    ],
+    "12. Build the Projects page and the Project_Viewer": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291523579
+      }
+    ],
+    "13. Build the Reviews page": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291879909
+      }
+    ],
+    "14. Build the Service Areas, FAQ and About pages": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291883776
+      }
+    ],
+    "15. Build the Contact page and the Quote_Form": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794291885064
+      }
+    ],
+    "17. Set up GitHub Pages deployment and the README": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794292254539
+      }
+    ],
+    "18. Perform the Visual_Review and fix what it finds": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794296432471
+      }
+    ],
+    "9. Build the Home and Not Found pages": [
+      {
+        "executionId": "f3b004ea-26d7-46f4-9d6e-e18108abb564",
+        "chatSessionId": "sess_c2eb9f96-5457-4de4-ad5c-7643828129be",
+        "timestamp": 1794296825798
+      }
+    ]
+  }
+}

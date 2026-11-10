@@ -1,0 +1,8 @@
+.notice {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--surface-muted);
+}

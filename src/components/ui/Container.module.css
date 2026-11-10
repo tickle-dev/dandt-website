@@ -1,0 +1,13 @@
+/*
+ * Shared content container (Req 14.5, 26.13). Every Page_Section, the
+ * Site_Header and the Footer use it, so their left edges align.
+ * The max width includes the gutters, so content is at most
+ * --container-max wide minus two gutters, and never closer than one
+ * gutter (16 px minimum) to a viewport edge.
+ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}

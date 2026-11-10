@@ -1,0 +1,20 @@
+/* Reviews_Page layout spacing; every value comes from tokens.css. */
+
+/* 1 Page header: sample notice above the Rating_Summary, "Leave a Review" below it. */
+.notice {
+  margin-bottom: var(--space-5);
+}
+
+.leaveReview {
+  margin-top: var(--space-5);
+}
+
+/* 2 Gap between the Review_Filter row and the Review_Card grid. */
+.filters {
+  margin-bottom: var(--space-6);
+}
+
+/* 3 Space between the closing banner sentence and its Primary CTA. */
+.bannerCta {
+  margin-top: var(--space-6);
+}

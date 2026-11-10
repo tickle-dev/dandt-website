@@ -1,0 +1,80 @@
+/*
+ * Call_To_Action styles (Req 13.8, 13.9, 26.12, 26.19). Both variants have the
+ * same 2 px border, so a Primary and a Secondary CTA of the same size have the
+ * same height. The classes also style the Quote_Form submit <button> and the
+ * Click_To_Call_Button <a href="tel:">, so they reset button defaults too.
+ */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: var(--tap-min);
+  margin: 0;
+  border: var(--cta-border-width) solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-cta);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+/* One padding and one label size per size, wherever the CTA appears. */
+.md {
+  padding: var(--cta-md-pad);
+  font-size: var(--cta-md-fs);
+}
+
+.lg {
+  padding: var(--cta-lg-pad);
+  font-size: var(--cta-lg-fs);
+}
+
+.fullWidth {
+  display: flex;
+  width: 100%;
+}
+
+/* Primary: gold fill and border, black label; hover gold-light. */
+.primary {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  color: var(--color-black);
+}
+
+/*
+ * Secondary: surface gold border and label on a dark translucent fill; hover gold fill,
+ * black label. It appears only in the hero, where the fill keeps the gold label at 4.5:1
+ * over the lightest part of the darkened photo (Req 26.15).
+ */
+.secondary {
+  background-color: var(--cta-secondary-bg);
+  border-color: var(--surface-accent);
+  color: var(--surface-accent);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cta {
+    transition:
+      background-color var(--duration-fast),
+      border-color var(--duration-fast),
+      color var(--duration-fast);
+  }
+}

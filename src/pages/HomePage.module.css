@@ -1,0 +1,93 @@
+/* Home_Page (design.md, Page layouts → Home). Every value comes from tokens.css. */
+
+/*
+ * 1 Hero (Req 6.1, 6.10, 6.11, 26.10, 26.15, 26.16, 26.19, 26.32).
+ * The section fills the first viewport below the Site_Header (--hero-min-h) and
+ * centers its copy vertically, so the headline and both CTAs sit inside the
+ * first viewport at 1280 × 720 and 375 × 667. Taller content grows the section.
+ */
+.hero {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-height: var(--hero-min-h);
+  overflow: hidden;
+}
+
+/* Photo slot behind the copy. The Container is not positioned, so this fills the section. */
+.heroMedia {
+  position: absolute;
+  inset: 0;
+}
+
+/* --color-overlay between the photo (or its charcoal placeholder) and the text (Req 26.15). */
+.heroMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-overlay);
+}
+
+/* Positioned after .heroMedia in tree order, so it paints above the photo and overlay. */
+.heroContent {
+  position: relative;
+}
+
+/* 20ch measure for balanced Cinzel lines, centered in the section. */
+.heroHeading {
+  max-width: var(--hero-heading-measure);
+  margin-inline: auto;
+}
+
+.heroSentence {
+  margin-bottom: var(--space-6);
+  font-size: var(--fs-body-lg);
+}
+
+/* Mobile: stacked, Primary first, equal (full) width, one spacing step apart (Req 26.19). */
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Tablet and desktop: one row, Primary on the left, equal height, centered. */
+@media (min-width: 768px) {
+  .heroActions {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+}
+
+/* 3 Why Choose highlights: 32 px icon in the surface gold (gold on charcoal). */
+.highlightIcon {
+  display: block;
+  margin-block-end: var(--space-4);
+  color: var(--surface-accent);
+}
+
+/* 4 How It Works numerals: Inter 600 at --fs-h2 in black (light section). */
+.stepNumber {
+  display: block;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  color: var(--color-black);
+}
+
+/* 5 Review_Preview: notice above the cards, "Read All Reviews" below them. */
+.reviewNotice {
+  margin-bottom: var(--space-5);
+}
+
+.reviewLink {
+  margin-top: var(--space-5);
+}
+
+/* 6 Closing banner: space between the sentence and its Primary CTA (same as the other banners). */
+.bannerCta {
+  margin-top: var(--space-6);
+}

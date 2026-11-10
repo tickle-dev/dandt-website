@@ -1,0 +1,111 @@
+// Review Placeholder_Content (design.md, Data Models: Review; Req 20.2, 20.3). Sample reviews
+// for the concept demo, which the customer replaces with real ones. Every city is one of the
+// 15 required Service_Area_Cities (Req 18.2). The first three reviews are featured on the
+// Home_Page Review_Preview (Req 6.6). Each Service_Category has one or two reviews, so every
+// filter state leaves a short row for the Visual_Review (Req 26.28). Brand_Voice (Req 27.13):
+// only the non-featured Carlos G. review uses "elite", and it is the Reviews_Page's single
+// permitted occurrence.
+import type { Review } from './types.ts';
+
+export const reviews: readonly Review[] = [
+  {
+    placeholder: true,
+    id: 'maria-s-plano',
+    reviewerName: 'Maria S.',
+    city: 'Plano',
+    category: 'Roofing & Exterior Construction',
+    rating: 5,
+    text: 'After the April hailstorm, the roofing crew inspected our roof, walked us through the damage and helped us document everything for our insurance claim. The new roof went on in two days, and they picked up every nail. Our neighbors in Plano have already asked for their number.',
+    featured: true,
+  },
+  {
+    placeholder: true,
+    id: 'james-t-frisco',
+    reviewerName: 'James T.',
+    city: 'Frisco',
+    category: 'Kitchen & Bathroom Upgrades',
+    rating: 5,
+    text: 'We turned a cramped hall bathroom into a walk-in shower with a new vanity. The tile team was careful, on time and easy to talk to, and the finished shower looks like it belongs in a magazine.',
+    featured: true,
+  },
+  {
+    placeholder: true,
+    id: 'angela-r-mckinney',
+    reviewerName: 'Angela R.',
+    city: 'McKinney',
+    category: 'Outdoor Living',
+    rating: 5,
+    text: 'The outdoor living crew built our composite deck in just over a week. They kept the yard tidy, explained each step and finished on the date they promised. We now spend most evenings outside.',
+    featured: true,
+  },
+  {
+    placeholder: true,
+    id: 'david-m-richardson',
+    reviewerName: 'David M.',
+    city: 'Richardson',
+    category: 'Exterior Improvements',
+    rating: 5,
+    text: 'Our old fence was leaning after years of North Texas wind. The fence crew replaced it with a stained cedar privacy fence in two days, and the final bill matched the estimate.',
+    featured: false,
+  },
+  {
+    placeholder: true,
+    id: 'priya-k-allen',
+    reviewerName: 'Priya K.',
+    city: 'Allen',
+    category: 'Flooring & Tile',
+    rating: 4,
+    text: 'The flooring team replaced worn carpet with hardwood across our first floor, and it looks beautiful. The job took one day longer than planned because of a subfloor repair, but they called ahead and explained the change.',
+    featured: false,
+  },
+  {
+    placeholder: true,
+    id: 'robert-l-arlington',
+    reviewerName: 'Robert L.',
+    city: 'Arlington',
+    category: 'Roofing & Exterior Construction',
+    rating: 4,
+    text: 'A windstorm tore shingles off the back of our roof on a Friday night. The roofing crew had a tarp on by Saturday morning and finished the repair the next week. Getting the final paperwork took a couple of calls, but the work itself was solid.',
+    featured: false,
+  },
+  {
+    placeholder: true,
+    id: 'linda-w-dallas',
+    reviewerName: 'Linda W.',
+    city: 'Dallas',
+    category: 'General Construction & Repairs',
+    rating: 5,
+    text: 'Our 1950s house in Dallas had wood rot around two windows and a sagging porch step. The carpentry crew replaced the rotted trim, rebuilt the step and painted everything to match.',
+    featured: false,
+  },
+  {
+    placeholder: true,
+    id: 'carlos-g-irving',
+    reviewerName: 'Carlos G.',
+    city: 'Irving',
+    category: 'Kitchen & Bathroom Upgrades',
+    rating: 5,
+    text: 'The tile team installed our new kitchen backsplash in a single day. Every cut around the outlets and windows is clean, and they held the job to an elite standard from start to finish.',
+    featured: false,
+  },
+  {
+    placeholder: true,
+    id: 'susan-b-carrollton',
+    reviewerName: 'Susan B.',
+    city: 'Carrollton',
+    category: 'Interior Improvements',
+    rating: 5,
+    text: 'We added crown molding to our living and dining rooms before listing the house. The trim crew worked neatly around our furniture, and the rooms finally look finished.',
+    featured: false,
+  },
+  {
+    placeholder: true,
+    id: 'michael-d-fort-worth',
+    reviewerName: 'Michael D.',
+    city: 'Fort Worth',
+    category: 'Exterior Improvements',
+    rating: 4,
+    text: 'The paint crew repainted our siding, trim and front door, and the house looks new again. Rain pushed the start back by two days, but they kept us updated by text the whole time.',
+    featured: false,
+  },
+];

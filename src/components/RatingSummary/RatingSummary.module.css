@@ -1,0 +1,40 @@
+/* Rating_Summary on the black Reviews page header (Req 20.8, 26.3). */
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  color: var(--surface-text);
+}
+
+.averageLine,
+.count {
+  margin: 0;
+}
+
+/* Figure, "out of 5" and the stars on one row, wrapping on narrow screens. */
+.averageLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--space-3);
+  row-gap: var(--space-2);
+}
+
+.average {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  color: var(--color-offwhite);
+}
+
+.outOf,
+.count {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+.stars {
+  align-self: center;
+}

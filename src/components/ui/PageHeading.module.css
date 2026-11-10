@@ -1,0 +1,13 @@
+/*
+ * Page h1 (Req 15.2, 26.2, 26.30). global.css sets the size, weight,
+ * text-wrap: balance and margin-bottom: var(--space-5) (24 px before the
+ * following content).
+ *
+ * The h1 has tabIndex={-1} only so route changes can move focus to it
+ * (Req 15.10). It is not an interactive element and cannot be reached with
+ * Tab, so it shows no focus ring; the focus indicator rules (Req 13.11, 15.5)
+ * apply to interactive elements.
+ */
+.heading:focus {
+  outline: none;
+}

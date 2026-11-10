@@ -1,0 +1,24 @@
+/*
+ * Layout shell (Req 12.1): a full-viewport-height flex column, so on pages shorter
+ * than the viewport the Footer sits flush with the bottom edge. The Footer itself
+ * reserves the Click_To_Call_Button space below 768 px, so no body padding is set here.
+ * 100vh is the fallback for browsers without dynamic viewport units.
+ */
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+/*
+ * main has tabIndex={-1} only so the SkipLink can move focus to it (Req 15.3).
+ * It is not reachable with Tab, so, like the page h1, it shows no focus ring.
+ */
+.main:focus {
+  outline: none;
+}

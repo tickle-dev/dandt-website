@@ -1,0 +1,40 @@
+/* Services_Page layout (design.md, Page layouts → Services); every value comes from tokens.css. */
+
+/*
+ * Service_Item list: one column on mobile, two equal columns from 768 px (tablet and
+ * desktop). Native list markers keep list semantics; the marker uses the surface accent
+ * (gold-dark on off-white).
+ */
+.items {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: var(--space-6);
+  row-gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  padding-left: var(--space-5);
+}
+.items li::marker {
+  color: var(--surface-accent);
+}
+@media (min-width: 768px) {
+  .items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* No-match block (Req 26.26): icon, message, hint and CTA in one centered block. */
+.noMatchIcon {
+  display: block;
+  margin: 0 auto var(--space-4);
+  color: var(--surface-accent);
+}
+.noMatchMessage {
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-semibold);
+  overflow-wrap: anywhere; /* a 100-character query without spaces still wraps (Req 14.1) */
+}
+
+/* Space between the last sentence and the section's Primary CTA. */
+.cta {
+  margin-top: var(--space-6);
+}

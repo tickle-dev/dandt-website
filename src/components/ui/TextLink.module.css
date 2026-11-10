@@ -1,0 +1,31 @@
+/*
+ * Text links (Req 26.21): the surrounding text color, never gold, with a 1 px
+ * underline at rest and 2 px on hover. Nav and Footer links have their own styles.
+ */
+
+.link {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--border-width);
+}
+
+.link:visited {
+  color: inherit;
+}
+
+.link:hover {
+  text-decoration-thickness: var(--border-width-strong);
+}
+
+/* Standalone links ("Read All Reviews", "Open in Google Maps", …) get a 44 px tap height (Req 14.6). */
+.standalone {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link {
+    transition: text-decoration-thickness var(--duration-fast);
+  }
+}

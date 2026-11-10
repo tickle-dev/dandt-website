@@ -1,0 +1,77 @@
+/*
+ * Service_Filter (Req 7.9, 14.6, 14.7, 15.5; design.md, Form fields).
+ * Sits in the black page header: the label uses the surface text color, and the
+ * global focus ring on the input resolves to gold through --surface-accent. The
+ * field itself matches the Quote_Form fields: 48 px, off-white, 1 px gray border,
+ * --radius-sm.
+ */
+.root {
+  max-width: var(--measure);
+  margin-top: var(--space-2);
+}
+/* Label above the field in Inter 600 at --fs-body. */
+.label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-body);
+}
+.control {
+  position: relative;
+}
+/*
+ * The end padding leaves room for the 44 px clear button inside the field, so typed
+ * text never runs under it. Padding is the inner spacing minus the 1 px border.
+ */
+.input {
+  --field-pad-y: var(--space-2);
+  --field-pad-x: var(--space-3);
+  display: block;
+  width: 100%;
+  height: var(--field-height);
+  margin: 0;
+  padding:
+    calc(var(--field-pad-y) - var(--border-width))
+    calc(var(--tap-min) + var(--field-pad-x) - var(--border-width))
+    calc(var(--field-pad-y) - var(--border-width))
+    calc(var(--field-pad-x) - var(--border-width));
+  border: var(--border-width) solid var(--color-gray);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-offwhite);
+  color: var(--color-black);
+  font-size: var(--fs-body); /* at least 16 px at every width (Req 14.7) */
+  line-height: var(--lh-body);
+  appearance: none;
+}
+/* The custom clear button replaces the browser's own search controls. */
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-decoration {
+  appearance: none;
+}
+/*
+ * Clear button: 44 × 44 px (Req 14.6), centered vertically inside the 48 px field at
+ * its end. Its focus ring sits inside the button, on the off-white field, so it uses
+ * gold-dark like any focus ring on off-white (Req 15.5).
+ */
+.clear {
+  --surface-accent: var(--color-gold-dark);
+  position: absolute;
+  top: calc((var(--field-height) - var(--tap-min)) / 2);
+  right: calc((var(--field-height) - var(--tap-min)) / 2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-black);
+  cursor: pointer;
+}
+.clear:focus-visible {
+  outline-offset: calc(-1 * var(--focus-width));
+}

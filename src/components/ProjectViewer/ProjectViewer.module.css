@@ -1,0 +1,150 @@
+/* Project_Viewer (Req 21.2, 21.3, 21.12, 26.17, 26.23, 26.24). */
+
+/* Full-viewport overlay. Its padding keeps the panel (and the photo) ≥ 16 px from each edge. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-viewer);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background-color: var(--color-overlay);
+}
+
+/*
+ * The dialog panel. Block layout (not flex), so nothing shrinks when the content is taller
+ * than the viewport; the panel scrolls inside itself instead.
+ */
+.panel {
+  --viewer-pad: var(--space-4);
+  width: 100%;
+  max-width: var(--viewer-panel-max-w);
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 var(--viewer-pad) var(--viewer-pad);
+  border-radius: var(--radius-md);
+  background-color: var(--color-charcoal);
+}
+
+@media (width >= 768px) {
+  .panel {
+    --viewer-pad: var(--space-5);
+  }
+}
+
+/* Close button row: sticks to the panel top, so the close button stays visible while scrolling. */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-viewer-toolbar);
+  display: flex;
+  justify-content: flex-end;
+  margin-inline: calc(-1 * var(--viewer-pad));
+  padding: var(--space-2) var(--viewer-pad);
+  background-color: var(--color-charcoal);
+}
+
+/*
+ * Photo frame. --viewer-photo-ar (width / height, set inline) caps the width so the box,
+ * which keeps the photo's own ratio, is at most 60dvh tall and never wider than the panel.
+ */
+.frame {
+  width: min(100%, calc(var(--viewer-photo-max-h) * var(--viewer-photo-ar)));
+  margin-inline: auto;
+}
+
+/* SmartImage box: Card radius from SmartImage; black so loading and placeholder read on charcoal. */
+.frame .photo {
+  background-color: var(--color-black);
+}
+
+/* Descendant selectors outrank SmartImage's single-class rules. Never crop or distort. */
+.photo img {
+  object-fit: contain;
+}
+
+/* The placeholder (the only span child): same box, black block with icon and alt text. */
+.photo > span {
+  background-color: var(--color-black);
+}
+
+.text {
+  margin-top: var(--space-5);
+}
+
+.title {
+  margin-bottom: var(--space-2);
+}
+
+.category {
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--surface-muted);
+}
+
+.description {
+  font-size: var(--fs-body);
+}
+
+/* Previous on the left, next on the right. */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+/* Round 44 px icon buttons (close, previous, next): off-white icon and border on charcoal. */
+.iconButton {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  margin: 0;
+  padding: 0;
+  border: var(--border-width) solid var(--color-offwhite);
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  color: var(--color-offwhite);
+  cursor: pointer;
+  appearance: none;
+}
+
+.iconButton:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* Disabled (one Project_Card): gray icon and border, same shape and size, no hover (Req 26.24). */
+.iconButton:disabled {
+  border-color: var(--color-gray);
+  color: var(--color-gray);
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .backdrop {
+    animation: viewer-fade-in var(--duration-fast) ease-out;
+  }
+
+  .iconButton {
+    transition:
+      color var(--duration-fast),
+      border-color var(--duration-fast);
+  }
+}
+
+@keyframes viewer-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

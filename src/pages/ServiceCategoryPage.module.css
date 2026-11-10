@@ -1,0 +1,29 @@
+/* Service_Category_Page (design.md, Page layouts → Service Category). */
+
+/* Breadcrumb above the h1. */
+.breadcrumb {
+  margin-bottom: var(--space-4);
+}
+
+/* The section's Primary CTA under the summary. */
+.cta {
+  margin-top: var(--space-5);
+}
+
+/*
+ * Full-width header image (Req 26.10, 26.16, 26.23): outside any Container,
+ * 4:3 mobile, 16:9 tablet, 21:9 desktop (--ratio-category-header), no radius,
+ * no overlay, no text. The photo is cropped with object-fit: cover at its focal point.
+ */
+.headerImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ratio-category-header);
+  overflow: hidden;
+  background-color: var(--color-charcoal);
+}
+
+.headerImageFill {
+  position: absolute;
+  inset: 0;
+}

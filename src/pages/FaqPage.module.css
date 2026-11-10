@@ -1,0 +1,13 @@
+/* FAQ_Page layout spacing; every value comes from tokens.css. */
+
+/* Space between consecutive FAQ groups inside the accordion section. */
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Space between the closing banner sentence and its Primary CTA. */
+.bannerCta {
+  margin-top: var(--space-6);
+}

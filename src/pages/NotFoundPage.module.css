@@ -1,0 +1,14 @@
+/*
+ * Not_Found_Page link list (Req 5.7): the Home and Services TextLinks stacked
+ * under the sentence, left-aligned, each with its 44 px standalone tap height
+ * (Req 14.6). No bullets or indent.
+ */
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

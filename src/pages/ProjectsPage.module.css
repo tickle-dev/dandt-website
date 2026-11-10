@@ -1,0 +1,11 @@
+/* Projects_Page layout spacing; every value comes from tokens.css. */
+
+/* Gap between the Project_Filter row and the Project_Card grid. */
+.filters {
+  margin-bottom: var(--space-6);
+}
+
+/* Space between the closing banner sentence and its Primary CTA. */
+.bannerCta {
+  margin-top: var(--space-6);
+}

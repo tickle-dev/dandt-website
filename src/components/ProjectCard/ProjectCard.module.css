@@ -1,0 +1,51 @@
+/* Project_Card (Req 10.2, 21.1, 26.6, 26.7, 26.23). Card styling comes from cardProps(). */
+
+/*
+ * One 4:3 image box for every card in the grid (Req 26.7). The image fills it,
+ * so the manifest's own ratio cannot change the box. CardMedia rounds and
+ * clips the top corners.
+ */
+.media {
+  aspect-ratio: var(--ratio-project-card);
+}
+
+/* Two classes, so it wins over SmartImage's .framed radius regardless of CSS order. */
+.media .image {
+  height: 100%;
+  border-radius: 0;
+}
+
+/* Text block: the card's last child; it grows so the text stays under the image. */
+.body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--space-2);
+}
+
+/* Styled like an h3 (a heading cannot sit inside a <button>). */
+.title {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  color: var(--surface-text);
+}
+
+.category {
+  display: block;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-body);
+  color: var(--surface-muted);
+}
+
+.description {
+  display: block;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--surface-text);
+}

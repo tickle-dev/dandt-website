@@ -1,0 +1,72 @@
+/*
+ * The one shared Card style (Req 26.6, 26.7, 26.23): 1 px gray border,
+ * --radius-md, --card-pad, light (off-white) or dark (charcoal) fill.
+ * The classes are also put on router links and <button>s through cardProps(),
+ * so .interactive resets link and button defaults.
+ */
+.card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  inline-size: 100%;
+  /* Fills a stretched grid cell, including the <li> wrapper of a list CardGrid (Req 26.7). */
+  block-size: 100%;
+  min-inline-size: 0;
+  margin: 0;
+  padding: var(--card-pad);
+  border: var(--border-width) solid var(--color-gray);
+  border-radius: var(--radius-md);
+  color: var(--surface-text);
+}
+
+/* The last element (for example the "Explore" label) sits at the bottom. */
+.card > :last-child:not(:first-child) {
+  margin-block-start: auto;
+}
+
+.light {
+  background-color: var(--color-offwhite);
+}
+
+.dark {
+  background-color: var(--color-charcoal);
+}
+
+/* Link and button resets, for cards that navigate or open the Project_Viewer. */
+.interactive {
+  font: inherit;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+}
+
+/* One hover treatment for every interactive Card (Req 13.9, 26.6); none for the rest. */
+@media (hover: hover) {
+  .interactive:hover {
+    border-color: var(--surface-accent);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(calc(-1 * var(--card-lift)));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .interactive {
+    transition:
+      border-color var(--duration-fast),
+      box-shadow var(--duration-fast),
+      transform var(--duration-fast);
+  }
+}
+
+/*
+ * Top image slot: pulled out over the card padding to the full inner width,
+ * flush with the top, with --radius-md top corners (Req 26.23).
+ */
+.media {
+  display: block;
+  margin-block: calc(-1 * var(--card-pad)) var(--space-4);
+  margin-inline: calc(-1 * var(--card-pad));
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+}

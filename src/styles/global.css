@@ -1,0 +1,155 @@
+/*
+ * Global base styles. Every value comes from tokens.css through var(--…);
+ * only unitless 0, percentages and keywords appear as literals here.
+ * Media query breakpoints are literal because custom properties cannot be
+ * used inside a media condition.
+ *
+ * Motion rule (Req 15.9, 26.17): every transition or animation in the
+ * codebase is declared inside @media (prefers-reduced-motion: no-preference),
+ * so reduced motion gets instant state changes. This file declares none, and
+ * it never sets scroll-behavior: smooth, so scroll-to-top jumps instantly.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------------------------
+ * Surface variables (Req 13.7, 13.11)
+ * Light is the default, matching the off-white page background. Sections set
+ * data-tone="dark" on black or charcoal and data-tone="light" on off-white.
+ * --surface-accent is the gold to use for lines and the focus ring, so gold on
+ * off-white always resolves to the darker shade.
+ * ------------------------------------------------------------------------ */
+:root,
+[data-tone="light"] {
+  --surface-text: var(--color-black);
+  --surface-muted: var(--color-gray);
+  --surface-accent: var(--color-gold-dark);
+}
+
+[data-tone="dark"] {
+  --surface-text: var(--color-offwhite);
+  --surface-muted: var(--color-offwhite);
+  --surface-accent: var(--color-gold);
+}
+
+[data-tone] {
+  color: var(--surface-text);
+}
+
+/* ---------------------------------------------------------------------------
+ * Document and scrolling (Req 15.5)
+ * Scroll padding keeps focused and anchor-targeted elements clear of the
+ * sticky Site_Header and, on mobile, the Click_To_Call_Button.
+ * ------------------------------------------------------------------------ */
+html {
+  scroll-padding-top: var(--header-height);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (width < 768px) {
+  html {
+    scroll-padding-bottom: calc(var(--ctc-height) + var(--space-4));
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-offwhite);
+  color: var(--surface-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+/* ---------------------------------------------------------------------------
+ * Typography (Req 13.4, 26.2, 26.3, 26.4, 26.5, 26.30)
+ * ------------------------------------------------------------------------ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+h1 {
+  margin-bottom: var(--space-5);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  text-wrap: balance;
+}
+
+h2 {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-h2);
+  text-wrap: balance;
+}
+
+h3 {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-h3);
+}
+
+/* Not used by the design; kept between body and h3 sizes (Req 26.2). */
+h4,
+h5,
+h6 {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-body);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Form controls inherit Inter and never drop below the body size (Req 14.7). */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  font-size: var(--fs-body);
+  color: inherit;
+}
+
+/* ---------------------------------------------------------------------------
+ * Focus ring (Req 13.11, 15.5): no transition, so it appears immediately.
+ * ------------------------------------------------------------------------ */
+:focus-visible {
+  outline: var(--focus-width) solid var(--surface-accent);
+  outline-offset: var(--focus-offset);
+}
+
+/* ---------------------------------------------------------------------------
+ * Utilities
+ * ------------------------------------------------------------------------ */
+
+/* Text for screen readers only (for example "(opens in a new tab)"). */
+.visually-hidden {
+  position: absolute;
+  width: var(--visually-hidden-size);
+  height: var(--visually-hidden-size);
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
