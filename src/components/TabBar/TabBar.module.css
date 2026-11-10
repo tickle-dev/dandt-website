@@ -1,0 +1,231 @@
+/*
+ * Tab_Bar (Req 4, 24; tokens.css "Tab_Bar"). Fixed to the bottom of the viewport
+ * below 1024 px and hidden from 1024 px up. Stacking inside the bar's own context:
+ * dimmed backdrop (covers the page, not the Site_Header), then the More sheet, then
+ * the tab row, so the More tab stays tappable to close the sheet.
+ */
+.bar {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: var(--z-tab-bar);
+}
+
+@media (width >= 1024px) {
+  .bar {
+    display: none;
+  }
+}
+
+/* Tab row: solid black with the same fading gold hairline as the Site_Header. */
+.tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  height: calc(var(--tab-bar-h) + env(safe-area-inset-bottom, 0px));
+  margin: 0;
+  padding: 0 var(--space-1) env(safe-area-inset-bottom, 0px);
+  list-style: none;
+  background-color: var(--color-black);
+  box-shadow: var(--shadow-header);
+}
+
+.tabs::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: var(--border-width);
+  background-image: var(--header-accent);
+}
+
+.tabs > li {
+  display: flex;
+  min-width: 0;
+}
+
+/* One tab: icon above a short label, the full cell is the tap target (≥ 44 × 44). */
+.tab {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  margin: 0;
+  padding: var(--space-1) 0;
+  border: 0;
+  background: none;
+  color: var(--color-offwhite);
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.label {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: var(--fs-tab);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-cta);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon {
+  color: inherit;
+}
+
+.tab:hover {
+  color: var(--color-gold-light);
+}
+
+/* Active tab: gold, with a short gold bar along the top edge of the bar (Req 4.3). */
+.active,
+.active:hover {
+  color: var(--color-gold);
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--space-6);
+  height: var(--nav-indicator-h);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-gold);
+  transform: translateX(-50%);
+}
+
+/* Call tab: the phone icon on a gold circle, so it reads as the bar's main action (Req 24.4). */
+.callBadge {
+  display: grid;
+  place-items: center;
+  width: var(--tab-call-badge);
+  height: var(--tab-call-badge);
+  margin-block: calc((var(--icon-md) - var(--tab-call-badge)) / 2);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+.call:hover .callBadge {
+  background-color: var(--color-gold-light);
+}
+
+/* Dimmed page behind the open sheet; the Site_Header stays above it. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-overlay);
+}
+
+/* More sheet: a short panel that rises from the top edge of the tab row. */
+.sheet {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 100%;
+}
+
+.sheet:not([hidden]) {
+  display: block;
+  max-height: calc(100dvh - var(--header-height) - var(--tab-bar-h) - var(--space-4));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-2) var(--gutter) var(--space-3);
+  border-top: var(--border-width) solid var(--color-gray);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background-color: var(--color-charcoal);
+  box-shadow: var(--shadow-float);
+}
+
+.sheetList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sheetList > li + li {
+  border-top: var(--border-width) solid var(--color-gray);
+}
+
+.sheetLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: var(--tap-min);
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--color-offwhite);
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  text-decoration: none;
+}
+
+.sheetIcon {
+  color: var(--color-gold);
+}
+
+.sheetLink:hover {
+  color: var(--color-gold-light);
+  background-color: var(--nav-hover-bg);
+}
+
+.sheetActive,
+.sheetActive:hover {
+  color: var(--color-gold);
+  background-color: var(--nav-hover-bg);
+  box-shadow: inset var(--nav-panel-accent-w) 0 0 var(--color-gold);
+}
+
+/* Focus ring inside the bar and sheet, drawn inside the tap area so it is never clipped. */
+.tab:focus-visible,
+.sheetLink:focus-visible {
+  outline-offset: calc(-1 * var(--focus-width));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tab,
+  .callBadge,
+  .sheetLink {
+    transition:
+      color var(--duration-fast),
+      background-color var(--duration-fast);
+  }
+
+  .sheet:not([hidden]) {
+    animation: sheet-up var(--duration-fast) ease-out;
+  }
+
+  .backdrop {
+    animation: fade-in var(--duration-fast) ease-out;
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-4));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
