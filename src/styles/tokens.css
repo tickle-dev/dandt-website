@@ -79,7 +79,7 @@
      space it reserves (Footer padding, scroll padding, hero height) disappears there */
   --tab-bar-h: 64px;
   --fs-tab: 12px;                  /* tab labels under the icons */
-  --tab-call-badge: 36px;          /* gold circle behind the Call tab's phone icon */
+  --tab-icon-slot: 32px;           /* icon box on every tab; the Call tab's gold circle fills it */
 
   /* Interaction */
   --tap-min: 44px;

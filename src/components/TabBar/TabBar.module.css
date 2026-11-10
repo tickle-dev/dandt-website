@@ -77,7 +77,13 @@
   white-space: nowrap;
 }
 
-.icon {
+/* Every tab's icon sits centred in the same slot, so all five labels share one baseline. */
+.iconSlot {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: var(--tab-icon-slot);
+  height: var(--tab-icon-slot);
   color: inherit;
 }
 
@@ -103,13 +109,9 @@
   transform: translateX(-50%);
 }
 
-/* Call tab: the phone icon on a gold circle, so it reads as the bar's main action (Req 24.4). */
+/* Call tab, in the centre: the phone icon on a gold circle that fills the icon slot, so it
+   reads as the bar's main action without crowding its label (Req 24.4). */
 .callBadge {
-  display: grid;
-  place-items: center;
-  width: var(--tab-call-badge);
-  height: var(--tab-call-badge);
-  margin-block: calc((var(--icon-md) - var(--tab-call-badge)) / 2);
   border-radius: var(--radius-pill);
   background-color: var(--color-gold);
   color: var(--color-black);

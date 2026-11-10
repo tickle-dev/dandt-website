@@ -22,12 +22,14 @@ export const MORE_SHEET_ID = 'more-pages';
 
 const isKnownCategory = (slug: string): boolean => getCategoryBySlug(catalog, slug) !== undefined;
 
-/** Pages with their own tab, in Tab_Bar order before Call and More (Req 4.2). */
-const TABS: readonly { key: NavKey; icon: IconName }[] = [
+type PageTab = { key: NavKey; icon: IconName };
+
+/** Page tabs left of the centre Call tab, then right of it before More (Req 4.2). */
+const TABS_BEFORE_CALL: readonly PageTab[] = [
   { key: 'home', icon: 'House' },
   { key: 'services', icon: 'Hammer' },
-  { key: 'projects', icon: 'Image' },
 ];
+const TABS_AFTER_CALL: readonly PageTab[] = [{ key: 'projects', icon: 'Image' }];
 
 /** Pages listed in the More sheet, in Navigation_Menu order (Req 4.4). */
 const MORE: readonly { key: NavKey; icon: IconName }[] = [
@@ -42,7 +44,7 @@ const MORE_KEYS: ReadonlySet<NavKey> = new Set(MORE.map((item) => item.key));
 /**
  * Tab_Bar (Req 4, 24): the Compact_Viewport navigation, fixed to the bottom of the
  * viewport so every main page is one thumb tap away. Five tabs: Home, Services,
- * Projects, Call (the Click_To_Call_Button) and More. More opens a small sheet above
+ * Call (the Click_To_Call_Button, in the centre), Projects and More. More opens a small sheet above
  * the bar with the other five pages; the page behind is dimmed, and a tap on it,
  * Escape, another tap on More, a link or a route change closes the sheet. CSS hides
  * the whole bar at 1024 px and wider, where the Site_Header shows the inline links.
@@ -78,7 +80,7 @@ export function TabBar() {
       {open && <div className={styles.backdrop} aria-hidden="true" onClick={close} />}
 
       <ul className={styles.tabs}>
-        {TABS.map(({ key, icon }) => (
+        {TABS_BEFORE_CALL.map(({ key, icon }) => (
           <li key={key}>
             <Link
               to={ROUTES[key]}
@@ -86,7 +88,9 @@ export function TabBar() {
               aria-current={current(key)}
               onClick={close}
             >
-              <Icon name={icon} size="md" className={styles.icon} />
+              <span className={styles.iconSlot}>
+                <Icon name={icon} size="md" />
+              </span>
               <span className={styles.label}>{NAV_LABELS[key]}</span>
             </Link>
           </li>
@@ -99,12 +103,27 @@ export function TabBar() {
             aria-label={callLabel(contact.phone)}
             onClick={close}
           >
-            <span className={styles.callBadge}>
+            <span className={`${styles.iconSlot} ${styles.callBadge}`}>
               <Icon name="Phone" size="md" />
             </span>
             <span className={styles.label}>{A11Y.call}</span>
           </a>
         </li>
+        {TABS_AFTER_CALL.map(({ key, icon }) => (
+          <li key={key}>
+            <Link
+              to={ROUTES[key]}
+              className={current(key) ? `${styles.tab} ${styles.active}` : styles.tab}
+              aria-current={current(key)}
+              onClick={close}
+            >
+              <span className={styles.iconSlot}>
+                <Icon name={icon} size="md" />
+              </span>
+              <span className={styles.label}>{NAV_LABELS[key]}</span>
+            </Link>
+          </li>
+        ))}
         <li>
           <button
             ref={moreRef}
@@ -114,7 +133,9 @@ export function TabBar() {
             aria-controls={MORE_SHEET_ID}
             onClick={() => dispatch({ type: 'TOGGLE' })}
           >
-            <Icon name={open ? 'X' : 'Ellipsis'} size="md" className={styles.icon} />
+            <span className={styles.iconSlot}>
+              <Icon name={open ? 'X' : 'Ellipsis'} size="md" />
+            </span>
             <span className={styles.label}>{A11Y.more}</span>
           </button>
         </li>
